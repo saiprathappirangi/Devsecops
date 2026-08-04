@@ -6,8 +6,7 @@
 ![Screen shot of Load balancer](Load.png)
 
 -----
-
- '''text
+'''text
 
                     Internet
                         |
