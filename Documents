@@ -1,7 +1,7 @@
                                          Application Load Balancer (ALB) - Path_Based_Routing
 
 ## What is load balancer?
-Load Balances are servers that forward traffic to multiple servers (e.g., EC2 instances) downstream.
+•Load Balances are servers that forward traffic to multiple servers (e.g., EC2 instances) downstream.
 
 ##Why use a load balancer?
 • Spread load across multiple downstream instances
@@ -12,10 +12,20 @@ Load Balances are servers that forward traffic to multiple servers (e.g., EC2 in
 • Enforce stickiness with cookies
 • High availability across zones
 • Separate public traffic from private traffic
+
+## Why use an Elastic Load Balancer?
+# In aws we call them as Elastic load balancer 
+An Elastic Load Balancer is a managed load balancer
+• AWS guarantees that it will be working
+• AWS takes care of upgrades, maintenance, high availability
+• AWS provides only a few configuration knobs
+• It costs less to setup your own load balancer but it will be a lot more effor t 
+on your end
+# It is integrated with many AWS offerings / services
+• EC2, EC2 Auto Scaling Groups, Amazon ECS
+• AWS Cer tificate Manager (ACM), CloudWatch
+• Route 53, AWS WAF, AWS Global Accelerator
           
-
-
-## Types Load Balancers
 
 
 
