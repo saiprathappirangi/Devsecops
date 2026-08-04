@@ -2,6 +2,7 @@
 ## What is load balancer 
 A load balancer is a system (hardware or software) that distributes incoming network traffic across multiple servers to ensure high availability,
 scalability, and performance of applications.
+## 
 ## Types Load Balancers
 
 
