@@ -5,12 +5,9 @@
 
 ![Screen shot of Load balancer](Load.png)
 
-
-
 -----
- 
 
-'''text
+ '''text
 
                     Internet
                         |
@@ -27,3 +24,6 @@
       EC2 Instance 1             EC2 Instance 2
 
       '''
+-----      
+
+      
