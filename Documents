@@ -1,8 +1,20 @@
-## Application Load Balancer (ALB) - Path_Based_Routing
-## What is load balancer 
-A load balancer is a system (hardware or software) that distributes incoming network traffic across multiple servers to ensure high availability,
-scalability, and performance of applications.
-## 
+                                         Application Load Balancer (ALB) - Path_Based_Routing
+
+## What is load balancer?
+Load Balances are servers that forward traffic to multiple servers (e.g., EC2 instances) downstream.
+
+##Why use a load balancer?
+• Spread load across multiple downstream instances
+• Expose a single point of access (DNS) to your application
+• Seamlessly handle failures of downstream instances
+• Do regular health checks to your instances
+• Provide SSL termination (HTTPS) for your websites
+• Enforce stickiness with cookies
+• High availability across zones
+• Separate public traffic from private traffic
+          
+
+
 ## Types Load Balancers
 
 
