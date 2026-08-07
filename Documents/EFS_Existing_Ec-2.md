@@ -58,13 +58,35 @@ In SG the add following inbound rules
 4. Click **Create file system**.
 5. Select **Customize**.
 
-# Step5: Configure Network Settings:
+# Step 4: Configure Network Settings:
 * Select the VPC where Ec2 instances are launched
 * Select the Mounting targets with AZ and along with created EFS Security groups
   
 Configure Network Settings
 
 ![Step5: Configure Network Settings](EFS-MOUNT.png)
+
+# Step 5: Run the following Commands in Amazon Linux Instances
+
+* ssh -i "C:\VCUBE DOCUMENTS\Customkeypair.pem" ec2-user@ec2-43-205-231-197.ap-south-1.compute.amazonaws.com
+* Sudo -i
+* yum update -y && yum install -y amazon-efs-utils
+* mkdir -p /mnt/efs
+* sudo mount -t efs -o tls fs-0beb9909f7cc14118:/ /mnt/efs
+
+# Mount your Amazon EFS file system on a Linux instance (Attach)
+
+ ![Mount your Amazon EFS file system on a Linux instance (Attach)]()
+
+# To verify the EFS is attachment:
+Run Command: ***df -h***
+Verify the attachment:
+
+![Verify the attachment:]()
+
+  
+  
+
 
 
 
