@@ -90,7 +90,7 @@ Verify the attachment:
 *Vim Prathap.sh
 *cat Prathap.sh
 
-![cat Prathap.sh]()
+![cat Prathap.sh](file in Amazon.png)
 
 
 
