@@ -84,6 +84,16 @@ Verify the attachment:
 
 ![Verify the attachment:](Verify-EC1.png)
 
+# Create file in Amazon Linux Ec2
+
+## Run commands 
+*Vim Prathap.sh
+*cat Prathap.sh
+
+![cat Prathap.sh]()
+
+
+
   
   
 
