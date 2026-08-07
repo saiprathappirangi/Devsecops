@@ -128,7 +128,7 @@ Verify the Ubuntu attachment:
 
 ---
 
-##Conclusion:
+## Conclusion:
 
 * Created two EC2 instances (Ubuntu and Amazon Linux) in two different AZ
 * Created an Amazon EFS file system 
