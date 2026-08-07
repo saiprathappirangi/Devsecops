@@ -35,7 +35,7 @@ Create the following Two EC2 Instances
 
 ---
 
-# Step2: Security Group:
+# Step 2: Security Group:
 In SG the add following inbound rules
 
 | Type | Protocol | Port | Source         |
@@ -45,6 +45,16 @@ In SG the add following inbound rules
 | NFS  | TCP      | 2049 | 0.0.0.0/0      |
 
 ---
+
+# Step 3: Create an EFS File system 
+
+1. Sign in to the AWS Management Console.
+2. Search for **Amazon EFS**.
+3. Open **Elastic File System**.
+4. Click **Create file system**.
+5. Select **Customize**.
+
+
 
 
 
