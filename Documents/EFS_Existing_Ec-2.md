@@ -80,9 +80,9 @@ Configure Network Settings
 
 # To verify the EFS is attachment:
 Run Command: ***df -h***
-Verify the attachment:
+Verify the Amazon attachment:
 
-![Verify the attachment:](Verify-EC1.png)
+![Verify the Amazon attachment:](Verify-EC1.png)
 
 # Create file in Amazon Linux Ec2
 
@@ -109,9 +109,9 @@ Verify the attachment:
 
 # To verify the EFS is attachment:
 Run Command: ***df -h***
-Verify the attachment:
+Verify the Ubuntu attachment:
 
-![Verify the attachment:](Verify-EC-2.png)
+![Verify the Ubuntu attachment:](Verify-Ec-2.png)
 
 
 
