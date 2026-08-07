@@ -87,6 +87,7 @@ Verify the attachment:
 # Create file in Amazon Linux Ec2
 
 ## Run commands 
+
 *Vim Prathap.sh
 *cat Prathap.sh
 
