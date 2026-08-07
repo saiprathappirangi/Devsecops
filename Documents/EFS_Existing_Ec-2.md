@@ -93,7 +93,7 @@ Verify the attachment:
 
 ## Output: Amazon Linux Instances 
 
-![Output: Amazon Linux Instances ](File in Amazon.png)
+![Output: Amazon Linux Instances ](File-in-Amazon.png)
 
 
 
