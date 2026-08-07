@@ -58,9 +58,15 @@ In SG the add following inbound rules
 4. Click **Create file system**.
 5. Select **Customize**.
 
-# Step5: Configure Network Settings
+# Step5: Configure Network Settings:
+* Select the VPC where Ec2 instances are lunched
+* Select the Mounting targets with AZ and along with created EFS Security groups
+  
+Configure Network Settings
 
 ![Step5: Configure Network Settings](EFS-MOUNT.png)
+
+
 
 
 
