@@ -13,7 +13,7 @@
 ---
 
 # Architecture:
-![Architecture](EC2.png)
+![Architecture](EFS.png.png)
 
 ---
 
@@ -30,7 +30,7 @@ Create the following Two EC2 Instances
 * Ubuntu
 * Amazon
 
-![step 1: Launch Ec2 instance](EFS.png.png)
+![step 1: Launch Ec2 instance](EC2.png)
 
 ---
 
