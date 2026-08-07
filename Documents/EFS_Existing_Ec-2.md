@@ -130,12 +130,12 @@ Verify the Ubuntu attachment:
 
 ##Conclusion:
 
-* Created two EC2 instances (Ubuntu and Amazon Linux)
-* Created an Amazon EFS file system
-* Configured security groups for NFS access
+* Created two EC2 instances (Ubuntu and Amazon Linux) in two different AZ
+* Created an Amazon EFS file system 
+* Configured security groups for SSH, HTTP and NFS Protocol
 * Mounted the EFS file system on both instances
 * Verified the mount
-* Confirmed shared storage by accessing the same file from both servers
+* Confirmed file sharing between two different instances.
 
 ---
 
