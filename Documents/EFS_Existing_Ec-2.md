@@ -38,13 +38,16 @@ Create the following Two EC2 Instances
 # Step2: Security Group:
 In SG the add following inbound rules
 
-| Type | Protocol | Port | Source            |
-| ---- | -------- | ---- | ----------------- |
-| SSH  | TCP      | 2049 | 0.0.0.0/0         |
-| HTTP | TCP      | 80   | 0.0.0.0/0         |  
-| NFS  | TCP      | 2049 | 0.0.0.0/0         |
+| Type | Protocol | Port | Source         |
+| ---- | -------- | ---- | -------------- |
+| SSH  | TCP      | 2049 | 0.0.0.0/0      |
+| HTTP | TCP      | 80   | 0.0.0.0/0      |  
+| NFS  | TCP      | 2049 | 0.0.0.0/0      |
 
 ---
+
+
+
 
 
 
