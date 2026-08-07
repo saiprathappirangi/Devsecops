@@ -30,7 +30,7 @@ Create the following Two EC2 Instances
 * Ubuntu
 * Amazon
 
-
+---
 
 # Security Group:
 In SG the add following inbound rules
@@ -39,7 +39,9 @@ Type	Protocol	Port	Source
 SSH	TCP	22	0.0.0.0/0
 HTTP	TCP	80	0.0.0.0/0
 NFS	TCP	2049	0.0.0.0/0
-<img width="361" height="97" alt="image" src="https://github.com/user-attachments/assets/8a1edca8-8f3b-4334-b00f-db5586c33772" />
+<img width="361" height="97" alt="image" src="https://github.com/user-attachments/assets/8a1edca8-8f3b-4334-b00f-db5586c33772" /> 
+
+---
 
 
 
