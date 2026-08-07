@@ -95,6 +95,27 @@ Verify the attachment:
 
 ![Output: Amazon Linux Instances ](File-in-Amazon.png)
 
+## Step 6: Run the following Commands in Ubuntu Linux Instances
+
+* ssh -i "C:\VCUBE DOCUMENTS\Customkeypair.pem" ubuntu@3.110.175.199
+* Sudo -i
+* apt update -y && apt install -y nfs-common
+* mkdir -p /mnt/efs
+* sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport fs-0beb9909f7cc14118.efs.ap-south-1.amazonaws.com:/ /mnt/efs
+
+# Mount your Amazon EFS file system on a Linux instance (Attach)
+
+ ![Mount your Amazon EFS file system on a Linux instance (Attach)](Mount.png)
+
+# To verify the EFS is attachment:
+Run Command: ***df -h***
+Verify the attachment:
+
+![Verify the attachment:](Verify-EC-2.png)
+
+
+
+
 
 
   
