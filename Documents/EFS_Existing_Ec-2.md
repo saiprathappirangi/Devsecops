@@ -50,6 +50,7 @@ In SG the add following inbound rules
 
 ---
 
+
 # Step 3: Create an EFS File system 
 
 1. Sign in to the AWS Management Console.
@@ -58,13 +59,19 @@ In SG the add following inbound rules
 4. Click **Create file system**.
 5. Select **Customize**.
 
+---
+
 # Step 4: Configure Network Settings:
 * Select the VPC where Ec2 instances are launched
 * Select the Mounting targets with AZ and along with created EFS Security groups
   
 Configure Network Settings
 
-![Step5: Configure Network Settings](EFS-MOUNT.png)
+![Step4: Configure Network Settings](EFS-MOUNT.png)
+
+
+---
+
 
 # Step 5: Run the following Commands in Amazon Linux Instances
 
@@ -95,6 +102,8 @@ Verify the Amazon attachment:
 
 ![Output: Amazon Linux Instances](Amazon-Output.png)
 
+---
+
 ## Step 6: Run the following Commands in Ubuntu Linux Instances
 
 * ssh -i "C:\VCUBE DOCUMENTS\Customkeypair.pem" ubuntu@3.110.175.199
@@ -117,7 +126,18 @@ Verify the Ubuntu attachment:
 
 ![Output: Ubuntu Linux Instances](Ubuntu-Output.png)
 
+---
 
+##Conclusion:
+
+* Created two EC2 instances (Ubuntu and Amazon Linux)
+* Created an Amazon EFS file system
+* Configured security groups for NFS access
+* Mounted the EFS file system on both instances
+* Verified the mount
+* Confirmed shared storage by accessing the same file from both servers
+
+---
 
 
 
