@@ -13,7 +13,7 @@
 ---
 
 # Architecture:
-![Architecture](EFS.png.png)
+![Architecture](EC2.png)
 
 ---
 
