@@ -45,7 +45,7 @@ In SG the add following inbound rules
 | NFS  | TCP      | 2049 | 0.0.0.0/0      |
 
 ***Security Groups***
-![Security Groups]()
+![Security Groups](EFS-SG.png)
 
 
 ---
@@ -59,6 +59,8 @@ In SG the add following inbound rules
 5. Select **Customize**.
 
 # Step5: Configure Network Settings
+
+![Step5: Configure Network Settings](EFS-MOUNT.png)
 
 
 
