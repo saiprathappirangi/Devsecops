@@ -88,8 +88,8 @@ Verify the attachment:
 
 ## Run commands 
 
-*Vim Prathap.sh
-*cat Prathap.sh
+* Vim Prathap.sh
+* cat Prathap.sh
 
 ![cat Prathap.sh](File in Amazon.png)
 
