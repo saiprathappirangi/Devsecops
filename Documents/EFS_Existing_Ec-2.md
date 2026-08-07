@@ -93,7 +93,7 @@ Verify the Amazon attachment:
 
 ## Output: Amazon Linux Instances 
 
-![Output: Amazon Linux Instances ](File-in-Amazon.png)
+![Output: Amazon Linux Instances ](Amazon-Output.png)
 
 ## Step 6: Run the following Commands in Ubuntu Linux Instances
 
@@ -115,7 +115,7 @@ Verify the Ubuntu attachment:
 
 ## Output: Ubuntu Linux Instances 
 
-![Output: Ubuntu Linux Instances ](File-in-Ubuntu.png)
+![Output: Ubuntu Linux Instances ](Ubuntu-Output.png)
 
 
 
