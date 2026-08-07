@@ -44,6 +44,10 @@ In SG the add following inbound rules
 | HTTP | TCP      | 80   | 0.0.0.0/0      |  
 | NFS  | TCP      | 2049 | 0.0.0.0/0      |
 
+***Security Groups***
+![Security Groups]()
+
+
 ---
 
 # Step 3: Create an EFS File system 
@@ -53,6 +57,9 @@ In SG the add following inbound rules
 3. Open **Elastic File System**.
 4. Click **Create file system**.
 5. Select **Customize**.
+
+# Step5: Configure Network Settings
+
 
 
 
