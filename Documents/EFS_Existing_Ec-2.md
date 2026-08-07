@@ -9,7 +9,7 @@
 * Highly available, scalable, expensive (3x gp2), pay per use
 
 # Architecture:
-![Architecture](images)
+![Architecture](EFS.png.png)
 
 
 
