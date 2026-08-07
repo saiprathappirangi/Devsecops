@@ -113,6 +113,11 @@ Verify the Ubuntu attachment:
 
 ![Verify the Ubuntu attachment:](Verify-Ec-2.png)
 
+## Output: Ubuntu Linux Instances 
+
+![Output: Ubuntu Linux Instances ](File-in-Ubuntu.png)
+
+
 
 
 
