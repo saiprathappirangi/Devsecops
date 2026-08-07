@@ -35,7 +35,7 @@ Create the following Two EC2 Instances
 # Security Group:
 In SG the add following inbound rules
 
-Type	Protocal	Port	Source
+Type	Protocol	Port	Source
 SSH	TCP	22	0.0.0.0/0
 HTTP	TCP	80	0.0.0.0/0
 NFS	TCP	2049	0.0.0.0/0
