@@ -30,9 +30,11 @@ Create the following Two EC2 Instances
 * Ubuntu
 * Amazon
 
+![step 1: Launch Ec2 instance](EFS.png.png)
+
 ---
 
-# Security Group:
+# Step2: Security Group:
 In SG the add following inbound rules
 
 Type	Protocol	Port	Source
