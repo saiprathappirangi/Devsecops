@@ -25,9 +25,30 @@
 
 ---
 
-  
+# step 1: Launch Ec2 instance
+Create the following Two EC2 Instances
+* Ubuntu
+* Amazon
 
----
+
+
+# Security Group:
+In SG the add following inbound rules
+
+Type	Protocal	Port	Source
+SSH	TCP	22	0.0.0.0/0
+HTTP	TCP	80	0.0.0.0/0
+NFS	TCP	2049	0.0.0.0/0
+<img width="361" height="97" alt="image" src="https://github.com/user-attachments/assets/35747c76-a3ac-4839-9334-2a87e5681c5d" />
+
+
+
+
+
+
+
+
+
 
 
 
