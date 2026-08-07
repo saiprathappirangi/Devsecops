@@ -1,5 +1,6 @@
 # EFS file Transfer between existing both Ubuntu and Amazon Ec-2
----
+
+
 ## Objective: To establish a secure, scalable, and high‑availability shared storage solution using Amazon Elastic File System (EFS) for seamless file transfer and synchronization between two existing EC2 instances within the same VPC, ensuring data consistency, minimal latency, and simplified management of shared resources.
 
 ---
@@ -44,6 +45,7 @@ In SG the add following inbound rules
 | NFS  | TCP      | 2049 | 0.0.0.0/0         |
 
 ---
+
 
 
 
