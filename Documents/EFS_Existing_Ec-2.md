@@ -59,7 +59,7 @@ In SG the add following inbound rules
 5. Select **Customize**.
 
 # Step5: Configure Network Settings:
-* Select the VPC where Ec2 instances are lunched
+* Select the VPC where Ec2 instances are launched
 * Select the Mounting targets with AZ and along with created EFS Security groups
   
 Configure Network Settings
