@@ -91,7 +91,9 @@ Verify the attachment:
 * Vim Prathap.sh
 * cat Prathap.sh
 
-![cat Prathap.sh](File in Amazon.png)
+## Output: Amazon Linux Instances 
+
+![Output: Amazon Linux Instances ](File in Amazon.png)
 
 
 
