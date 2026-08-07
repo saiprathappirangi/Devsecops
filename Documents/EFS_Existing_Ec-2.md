@@ -82,7 +82,7 @@ Configure Network Settings
 Run Command: ***df -h***
 Verify the attachment:
 
-![Verify the attachment:](Verify-EC1)
+![Verify the attachment:](Verify-EC1.png)
 
   
   
