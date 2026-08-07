@@ -76,13 +76,13 @@ Configure Network Settings
 
 # Mount your Amazon EFS file system on a Linux instance (Attach)
 
- ![Mount your Amazon EFS file system on a Linux instance (Attach)]()
+ ![Mount your Amazon EFS file system on a Linux instance (Attach)](Mount.png)
 
 # To verify the EFS is attachment:
 Run Command: ***df -h***
 Verify the attachment:
 
-![Verify the attachment:]()
+![Verify the attachment:](Verify-EC1)
 
   
   
