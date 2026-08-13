@@ -76,7 +76,7 @@ networking, and connectivity
     - `10.0.0.2` → Reserved by AWS for mapping to Amazon-provided DNS
     - `10.0.0.3` → Reserved by AWS for future use
     - `10.0.0.255` → Network Broadcast Address  
-      - AWS does not support broadcast in a VPC, so this address is reserved
+      - AWS does ***not support broadcast*** in a VPC, so this address is reserved
 
 
 ---
