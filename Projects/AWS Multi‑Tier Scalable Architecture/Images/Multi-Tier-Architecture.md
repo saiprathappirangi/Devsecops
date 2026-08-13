@@ -39,16 +39,16 @@ AWS (Amazon Web Services) is the world’s most widely adopted cloud platform, o
 ---
 
 ### AWS Regions:
-*AWS has Regions all around the world
-*A region is a cluster of data centers
+* AWS has Regions all around the world
+* A region is a cluster of data centers
 
 ---
 
 ### AWS Availability Zones:
-*Each region has many availability zones (usually 3, min is 3, max is 6).
-*Each availability zone (AZ) is one or more discrete data centers with redundant power, 
+* Each region has many availability zones (usually 3, min is 3, max is 6).
+* Each availability zone (AZ) is one or more discrete data centers with redundant power, 
 networking, and connectivity
-*They’re separate from each other, so that they’re isolated from disasters.
+* They’re separate from each other, so that they’re isolated from disasters.
 
 ---
 
