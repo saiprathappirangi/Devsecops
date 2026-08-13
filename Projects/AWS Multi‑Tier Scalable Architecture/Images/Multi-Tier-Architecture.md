@@ -1,6 +1,4 @@
 # AWS Multi‑Tier Scalable Architecture
-# OR
-# CloudScale Tri‑Tier Infrastructure
 
 ---
 
