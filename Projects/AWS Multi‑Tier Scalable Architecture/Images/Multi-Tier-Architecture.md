@@ -56,8 +56,8 @@ networking, and connectivity
 * VPC = Virtual Private Cloud
 * You can have multiple VPCs in an AWS region (max. 5 per region – soft limit)
 * Max. CIDR per VPC is 5, for each CIDR:
-           **Min. size is /28 (16 IP addresses)**
-            **Max. size is /16 (65536 IP addresses)**
+*       **Min. size is /28 (16 IP addresses)**
+*       **Max. size is /16 (65536 IP addresses)**
 * Because VPC is private, only the Private IPv4 ranges are allowed:
              * 10.0.0.0 – 10.255.255.255 (10.0.0.0/8) 
              * 172.16.0.0 – 172.31.255.255 (172.16.0.0/12) 
