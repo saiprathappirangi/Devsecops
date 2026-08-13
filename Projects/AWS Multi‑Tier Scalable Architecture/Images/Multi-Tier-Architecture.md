@@ -60,11 +60,13 @@ networking, and connectivity
   - CIDR block size limits:
     - Minimum: `/28` → 16 IP addresses
     - Maximum: `/16` → 65,536 IP addresses
+- **Because VPC is private, only Private IPv4 ranges are allowed:**
+  - `10.0.0.0 – 10.255.255.255` (`10.0.0.0/8`)
+  - `172.16.0.0 – 172.31.255.255` (`172.16.0.0/12`)
+  - `192.168.0.0 – 192.168.255.255` (`192.168.0.0/16`)
 
-* Because VPC is private, only the Private IPv4 ranges are allowed:
-             * 10.0.0.0 – 10.255.255.255 (10.0.0.0/8) 
-             * 172.16.0.0 – 172.31.255.255 (172.16.0.0/12) 
-             * 192.168.0.0 – 192.168.255.255 (192.168.0.0/16)
+--- 
+
 ### Subnet: A subnet (short for subnetwork) is a logical subdivision of an IP network.
 AWS reserves 5 IP addresses (first 4 & last 1) in each subnet
 These 5 IP addresses are not available for use and can’t be assigned to an 
