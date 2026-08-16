@@ -92,27 +92,52 @@ A Public Subnet in AWS is a subnet inside your VPC that is directly connected to
 
 ---
 
-### Internet Gateway (IGW):
+## Internet Gateway (IGW)
 
-Allows resources (e.g., EC2 instances) in a VPC connect to the Internet
-• It scales horizontally and is highly available and redundant
-• Must be created separately from a VPC
-• One VPC can only be attached to one IGW and vice versa
+### 🌐 Overview
+- An Internet Gateway allows resources (e.g., EC2 instances) in a **VPC** to connect to the **Internet**.
+- It scales **horizontally**, is **highly available**, and **redundant**.
+- Must be created **separately** from a VPC.
+- **One VPC ↔ One IGW** (a VPC can only be attached to one IGW, and an IGW can only be attached to one VPC).
 
-Internet Gateways on their own do not allow Internet access…
-• Route tables must also be edited!
+### ⚠️ Important Notes
+- An IGW **alone does not provide Internet access**.
+- You must also configure **Route Tables**:
+  - Add a route for `0.0.0.0/0` (IPv4) or `::/0` (IPv6).
+  - Target → Internet Gateway (IGW).
+- Without proper route table entries, instances will not be able to reach the Internet even if an IGW is attached.
+
+### ✅ Key Points
+- IGW enables **outbound traffic** from instances to the Internet and **inbound traffic** from the Internet to instances.
+- Works together with **Security Groups** and **NACLs** to control traffic.
+- Essential for **public subnets** in a VPC design.
+
 
 ---
 
-### NAT Gateway:
-• AWS-managed NAT, higher bandwidth, high availability, no administration
-• Pay per hour for usage and bandwidth
-• NATGW is created in a specific Availability Zone, uses an Elastic IP
-• Can’t be used by EC2 instance in the same subnet (only from other 
-subnets)
-• Requires an IGW (Private Subnet => NATGW => IGW)
-• 5 Gbps of bandwidth with automatic scaling up to 100 Gbps
-• No Security Groups to manage / required
+## NAT Gateway (NATGW)
+
+### 🔐 Overview
+- AWS-managed **Network Address Translation (NAT)** service.
+- Provides **higher bandwidth**, **high availability**, and **no administration** overhead.
+- Billed **per hour** for usage and **per GB** of bandwidth.
+
+### ⚙️ Characteristics
+- Created in a **specific Availability Zone (AZ)**.
+- Uses an **Elastic IP** for outbound traffic.
+- Cannot be used by EC2 instances in the **same subnet** (only accessible from other subnets).
+- Requires an **Internet Gateway (IGW)** for outbound traffic:
+  - Private Subnet → NAT Gateway → IGW → Internet
+
+### 📊 Performance
+- **5 Gbps** of bandwidth by default.
+- Automatically scales up to **100 Gbps**.
+
+### ✅ Key Points
+- No **Security Groups** required or managed.
+- Ideal for allowing **private EC2 instances** to access the Internet (e.g., software updates, package downloads).
+- Ensures outbound connectivity while keeping instances **unreachable from the Internet**.
+
 
 ---
 
