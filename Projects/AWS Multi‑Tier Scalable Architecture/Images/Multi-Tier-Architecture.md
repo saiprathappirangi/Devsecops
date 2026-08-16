@@ -371,17 +371,14 @@ like the AMI, instance type, key pair, security groups, and user data.
 | Name           | TG-App1             | TG-App1             |
 | Protocol       | HTTP                | HTTP                |
 | Port           | 80                  | 80                  |
-| VPC            | Your VPC            | Your VPC            |
+
 
 | Health Check   | External TG         | Internal TG         |
 | -------------- | ------------------- | ------------------- |
 | Protocol       | HTTP                | HTTP                |
 | Port           | 80                  | 80                  |
 | Path           | /health             | /health             |
-| Interval       | 30 sec              | 30 sec              |
-| Timeout        | 5 sec               | 5 sec               |
-| Healthy Thresh | 3                   | 3                   |
-| Unhealthy Thresh | 2                 | 2                   |
+
 
  
 
