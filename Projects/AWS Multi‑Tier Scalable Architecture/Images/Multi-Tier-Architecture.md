@@ -206,21 +206,67 @@ A Public Subnet in AWS is a subnet inside your VPC that is directly connected to
 
 ---
 
-### Elastic Load Balancer: An Elastic Load Balancer is a managed load balancer
-*Load Balances are servers that forward traffic to multiple 
-servers (e.g., EC2 instances) downstream.
-## Types Of Load balancer:
-*Application Load Balancer- Operates at layer 7 - (application layer)-Protocol-HTTP, HTTPS, WebSocket
-*Network Load Balancer- operates at layer 4 - Protocol- TCP, TLS (secure TCP), UDP
-*Gateway Load Balancer- Operates at layer 3 (Network layer) – IP Protocol
+## Elastic Load Balancer (ELB)
+
+### 🔐 Overview
+- An **Elastic Load Balancer** is a **managed load balancer** provided by AWS.
+- Load balancers are servers that **forward traffic** to multiple downstream servers (e.g., EC2 instances).
+- ELB improves **availability, fault tolerance, and scalability** by distributing traffic intelligently.
+
+### ⚙️ Types of Load Balancers
+
+#### 1. Application Load Balancer (ALB)
+- Operates at **Layer 7** (Application Layer).
+- Protocols: **HTTP, HTTPS, WebSocket**.
+- Best for: **Web applications, APIs, microservices**.
+- Features: Content-based routing (URL, headers, cookies), supports modern protocols.
+
+#### 2. Network Load Balancer (NLB)
+- Operates at **Layer 4** (Transport Layer).
+- Protocols: **TCP, TLS (secure TCP), UDP**.
+- Best for: **High-performance, low-latency applications**.
+- Features: Handles millions of requests per second, supports static IPs.
+
+#### 3. Gateway Load Balancer (GWLB)
+- Operates at **Layer 3** (Network Layer).
+- Protocol: **IP**.
+- Best for: Deploying **security appliances** (firewalls, intrusion detection/prevention).
+- Features: Transparent traffic inspection, integrates with third-party appliances.
+
+### ✅ Key Points
+- ELB automatically scales to handle traffic.
+- Integrated with **Auto Scaling Groups** for elasticity.
+- Works seamlessly with **EC2, ECS, EKS, and Lambda**.
+- Provides **health checks** to route traffic only to healthy targets.
 
 ---
 
-### Target Groups:
-*A target group is a logical grouping of targets (EC2 instances, IPs, or Lambda functions).
-* Load balancers (Application Load Balancer, Network Load Balancer, Gateway Load Balancer) forward traffic to one or more target groups.
-*Each target group has its own health check configuration to determine if targets are healthy and can receive traffic.
-*With the help of application Load Balancers, you can route requests based on rules (e.g., path-based or host-based routing) to different target groups.
+## Target Groups
+
+### 🔐 Overview
+- A **Target Group** is a logical grouping of targets:
+  - **EC2 instances**
+  - **IP addresses**
+  - **Lambda functions**
+- Load balancers (ALB, NLB, GWLB) forward traffic to one or more target groups.
+
+### ⚙️ Health Checks
+- Each target group has its own **health check configuration**.
+- Only healthy targets receive traffic.
+- Health checks can be customized (path, interval, timeout, success codes).
+
+### 🎯 Routing with ALB
+- Application Load Balancers (ALB) support **rule-based routing**:
+  - **Path-based routing** → e.g., `/app/*` → App target group.
+  - **Host-based routing** → e.g., `api.example.com` → API target group.
+- Enables **microservices architecture** and **service isolation**.
+
+### ✅ Key Points
+- Target groups decouple load balancers from actual resources.
+- Multiple target groups can be attached to a single load balancer.
+- Supports dynamic scaling with Auto Scaling Groups.
+- Essential for **high availability** and **flexible traffic management**.
+
 
 ---
 
@@ -232,7 +278,6 @@ like the AMI, instance type, key pair, security groups, and user data.
 
 ### AMI:
 *An AMI (Amazon Machine Image) is a pre-configured template that contains the operating system, application server, and applications needed to launch an EC2 instance.
-
 *Ready-made image used to create EC2 instances.
 
 ---
