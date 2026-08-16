@@ -362,21 +362,22 @@ like the AMI, instance type, key pair, security groups, and user data.
 ## Step-7: Launch New two instances in public and private subnets accordingly by using own AMI
 
 ## Step-8: Create Target Groups for both External and Internal Load balancers
+                                       
+| Setting      | External ALB        | Internal ALB        |
+| ------------ | ------------------- | ------------------- |
+| Name         | External-ALB-App    | Internal-ALB-App    |
+| Type         | Application LB      | Application LB      |
+| Scheme       | Internet-facing     | Internal            |
+| VPC          | Your VPC            | Your VPC            |
 
-| External ALB | Value            |
-| ------------ | ---------------- |
-| Name         | External-ALB-App |
-| Type         | Application LB   |
-| Scheme       | Internet-facing  |
-| VPC          | Your VPC         |
+| Target Group | External TG         | Internal TG         |
+| ------------ | ------------------- | ------------------- |
+| Target Type  | Instances           | Instances           |
+| Name         | TG-App1             | TG-App1             |
+| Protocol     | HTTP                | HTTP                |
+| Port         | 80                  | 80                  |
+| VPC          | Your VPC            | Your VPC            |
 
-| Target Group | Value     |
-| ------------ | --------- |
-| Target Type  | Instances |
-| Name         | TG-App1   |
-| Protocol     | HTTP      |
-| Port         | 80        |
-| VPC          | Your VPC  |
  
 
 
