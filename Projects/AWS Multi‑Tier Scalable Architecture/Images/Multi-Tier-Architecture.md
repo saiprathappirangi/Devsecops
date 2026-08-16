@@ -10,7 +10,7 @@ security groups for controlled access across tiers.
 ---
 
 ## Architecture:
-![Architecture](Project-1.png)
+![Architecture](Project-2.png)
 
 ---
 
@@ -232,6 +232,7 @@ like the AMI, instance type, key pair, security groups, and user data.
 
 ### AMI:
 *An AMI (Amazon Machine Image) is a pre-configured template that contains the operating system, application server, and applications needed to launch an EC2 instance.
+
 *Ready-made image used to create EC2 instances.
 
 ---
