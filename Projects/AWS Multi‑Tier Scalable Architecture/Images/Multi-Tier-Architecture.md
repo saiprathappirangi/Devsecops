@@ -382,6 +382,7 @@ apt install mysql-server
 systemctl start mysql.service
 mysql -h end point -u admin -p
 Password: Prathap123
+````
 
 ### Step-11: Insert data into Database
 ```bash
