@@ -369,7 +369,7 @@ like the AMI, instance type, key pair, security groups, and user data.
 
 ## Step-10: Create Subnet for RDS and Configure the necessary connection
 
-## Step-11: SSH from Web Tier to Application to Database
+## Step-11: Linux Commands used SSH from Web Tier to Application to Database:
 
 ### Step-11: Insert data into Database
 ```bash
