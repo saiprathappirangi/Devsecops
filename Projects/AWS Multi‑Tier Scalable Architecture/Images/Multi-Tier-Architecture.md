@@ -363,16 +363,22 @@ like the AMI, instance type, key pair, security groups, and user data.
 
 ## Step-8: Create Target Groups for both External and Internal Load balancers
 
+| External ALB | Value            |
+| ------------ | ---------------- |
+| Name         | External-ALB-App |
+| Type         | Application LB   |
+| Scheme       | Internet-facing  |
+| VPC          | Your VPC         |
+
+| Target Group | Value     |
+| ------------ | --------- |
+| Target Type  | Instances |
+| Name         | TG-App1   |
+| Protocol     | HTTP      |
+| Port         | 80        |
+| VPC          | Your VPC  |
  
-|       External ALB      |
-| ----------- |  -------- |   
-| Setting     | Value     |
-| ----------- | --------- |
-| Target Type | Instances |
-| Name        | TG-App1   |
-| Protocol    | HTTP      |
-| Port        | 80        |
-| VPC         | Your VPC  |
+
 
 ## Step-9: Create Application load balancer for both Web and App layers
 
