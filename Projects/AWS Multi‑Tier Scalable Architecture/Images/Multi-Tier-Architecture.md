@@ -364,7 +364,7 @@ like the AMI, instance type, key pair, security groups, and user data.
 ## Step-8: Create Target Groups for both External and Internal Load balancers
 
  
-|    External ALB         |
+|       External ALB      |
 | ----------- |  -------- |   
 | Setting     | Value     |
 | ----------- | --------- |
