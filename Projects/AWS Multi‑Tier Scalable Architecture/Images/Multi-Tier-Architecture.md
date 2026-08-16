@@ -371,14 +371,24 @@ like the AMI, instance type, key pair, security groups, and user data.
 
 ## Step-11: Linux Commands used SSH from Web Tier to Application to Database
 
-
-
-
-
-
+```bash
+ssh -i "/c:/VCUBE DOCUMENTS/Custumkeypair.pem"@Ubuntu
+sudo -i
+vim Projectkeypair.pem
+ssh -i "Projectkeypair.pem" ubuntu@
+sudo -i
+apt update -y
+apt install mysql-server
+systemctl start mysql.service
+mysql -h end point -u admin -p
+Password: Prathap123
 
 ### Step-11: Insert data into Database
 ```bash
+Show dataabses;
+create database prathap;
+use prathap;
+
 CREATE TABLE Customers (
     Customer_ID INT PRIMARY KEY,
     Customer_Name VARCHAR(255) NOT NULL,
@@ -390,7 +400,7 @@ CREATE TABLE Customers (
     );
 
  Example:
-
+INSERT INTO Customers
 (Customer, Customer Name, Address, Gender, Mobile Number, Purchase Date, Bill Amount)
 VALUES 
 (10004, 'Prathap', 'Medak', 'Male', '9701184793', '2026-08-13', 450),
