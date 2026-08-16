@@ -372,7 +372,7 @@ like the AMI, instance type, key pair, security groups, and user data.
 ## Step-11: SSH from Web Tier to Application to Database
 
 ### Step-11: Insert data into Database
-'''bash
+```bash
 CREATE TABLE Customers (
     Customer_ID INT PRIMARY KEY,
     Customer_Name VARCHAR(255) NOT NULL,
@@ -382,7 +382,7 @@ CREATE TABLE Customers (
     Purchase_Date DATE,
     Bill_Amount DECIMAL(10,2)
     );
-'''
+```
 
 
 ### Step-12: Verify Output 
