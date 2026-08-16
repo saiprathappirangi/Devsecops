@@ -373,7 +373,10 @@ like the AMI, instance type, key pair, security groups, and user data.
 
 ## Step-11: Insert data into Database
 
-## Step-12: Verify Output 
+### Step-12: Verify Output 
+
+![Verify output](OutPut.png)
+
 
 
 
