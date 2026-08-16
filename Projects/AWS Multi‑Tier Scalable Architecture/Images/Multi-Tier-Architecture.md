@@ -365,7 +365,7 @@ like the AMI, instance type, key pair, security groups, and user data.
 
  
 |    External ALB         |
-| ----------------------- |   
+| ----------- |  -------- |   
 | Setting     | Value     |
 | ----------- | --------- |
 | Target Type | Instances |
