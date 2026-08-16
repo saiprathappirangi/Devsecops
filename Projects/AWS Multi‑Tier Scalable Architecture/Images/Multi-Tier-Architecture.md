@@ -363,20 +363,30 @@ like the AMI, instance type, key pair, security groups, and user data.
 
 ## Step-8: Create Target Groups for both External and Internal Load balancers
                                        
-| Setting      | External ALB        | Internal ALB        |
-| ------------ | ------------------- | ------------------- |
-| Name         | External-ALB-App    | Internal-ALB-App    |
-| Type         | Application LB      | Application LB      |
-| Scheme       | Internet-facing     | Internal            |
-| VPC          | Your VPC            | Your VPC            |
+| Setting        | External ALB        | Internal ALB        |
+| -------------- | ------------------- | ------------------- |
+| Name           | External-ALB-App    | Internal-ALB-App    |
+| Type           | Application LB      | Application LB      |
+| Scheme         | Internet-facing     | Internal            |
+| VPC            | Your VPC            | Your VPC            |
 
-| Target Group | External TG         | Internal TG         |
-| ------------ | ------------------- | ------------------- |
-| Target Type  | Instances           | Instances           |
-| Name         | TG-App1             | TG-App1             |
-| Protocol     | HTTP                | HTTP                |
-| Port         | 80                  | 80                  |
-| VPC          | Your VPC            | Your VPC            |
+| Target Group   | External TG         | Internal TG         |
+| -------------- | ------------------- | ------------------- |
+| Target Type    | Instances           | Instances           |
+| Name           | TG-App1             | TG-App1             |
+| Protocol       | HTTP                | HTTP                |
+| Port           | 80                  | 80                  |
+| VPC            | Your VPC            | Your VPC            |
+
+| Health Check   | External TG         | Internal TG         |
+| -------------- | ------------------- | ------------------- |
+| Protocol       | HTTP                | HTTP                |
+| Port           | 80                  | 80                  |
+| Path           | /health             | /health             |
+| Interval       | 30 sec              | 30 sec              |
+| Timeout        | 5 sec               | 5 sec               |
+| Healthy Thresh | 3                   | 3                   |
+| Unhealthy Thresh | 2                 | 2                   |
 
  
 
