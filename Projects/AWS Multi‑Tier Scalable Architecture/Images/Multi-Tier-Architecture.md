@@ -383,7 +383,7 @@ CREATE TABLE Customers (
     Bill_Amount DECIMAL(10,2)
     );
 
-   ***Example***:
+ Example:
 
 (Customer, Customer Name, Address, Gender, Mobile Number, Purchase Date, Bill Amount)
 VALUES 
