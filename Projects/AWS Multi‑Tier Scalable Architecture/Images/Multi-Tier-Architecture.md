@@ -116,33 +116,61 @@ subnets)
 
 ---
 
-### Security Group:
-* Security Groups are the fundamental of network security in AWS
-*They control how traffic is allowed into or out of our EC2 Instances. 
-Security groups only contain allow rules
-* Security groups rules can reference by IP or by security group.
-*Operates at the instance level
-*Supports allow rules only
-*Stateful: return traffic is automatically allowed, regardless of any rules
-*All rules are evaluated before deciding whether to allow traffic
-*Applies to an EC2 instance when specified by someone.
+## Security Groups
+
+### 🔐 Overview
+- Security Groups are the **fundamentals of network security** in AWS.
+- They control how traffic is allowed **into or out of EC2 instances**.
+- Operate at the **instance level** (not subnet level like NACLs).
+
+### 📜 Rules
+- Security Groups contain **allow rules only** (no deny rules).
+- Rules can reference:
+  - **IP addresses** (CIDR ranges).
+  - **Other Security Groups** (for instance-to-instance communication).
+- All rules are evaluated before deciding whether to allow traffic.
+
+### ⚙️ Behavior
+- **Stateful**: return traffic is automatically allowed, regardless of rules.
+- Applied only when explicitly associated with an EC2 instance.
+- Default Security Group allows **all outbound traffic** but no inbound traffic.
+
+### ✅ Key Points
+- Best practice: restrict SSH (port 22) to your own IP, not `0.0.0.0/0`.
+- Use Security Group references for cleaner architecture (e.g., ALB SG → EC2 SG).
+- Multiple Security Groups can be attached to a single EC2 instance.
+
 
 ---
 
-### NACL: Network Access Control List
-*NACL are like a firewall which control traffic from and to subnets.
-*One NACL per subnet, new subnets are assigned the Default NACL
+## Network Access Control List (NACL)
 
-***You define NACL Rules:***
-Rules have a number (1-32766), higher precedence with a lower number
-• First rule match will drive the decision
-• Example: if you define #100 ALLOW 10.0.0.10/32 and #200 DENY 10.0.0.10/32, the IP 
-address will be allowed because 100 has a higher precedence over 200
-• The last rule is an asterisk (*) and denies a request in case of no rule match
-• AWS recommends adding rules by increment of 100
-*Newly created NACLs will deny everything
-*NACL are a great way of blocking a specific IP address at the subnet level
-*Default NACL accepts everything inbound/outbound with the subnets it’s associated with
+### 🔐 Overview
+- NACLs act like a **firewall** controlling traffic **to and from subnets**.
+- Each subnet is associated with **one NACL**.
+- Newly created subnets are assigned the **Default NACL**.
+
+### 📜 NACL Rules
+- Rules are numbered **1–32766**.
+- **Lower numbers = higher precedence**.
+- The **first matching rule** determines the decision.
+- Example:
+  - Rule #100 → `ALLOW 10.0.0.10/32`
+  - Rule #200 → `DENY 10.0.0.10/32`
+  - Result → Allowed (because #100 has higher precedence).
+- The **last rule** is an asterisk `*` → denies traffic if no match.
+- AWS recommends adding rules in increments of **100**.
+
+### ⚠️ Behavior
+- **Newly created NACLs** → deny all inbound/outbound traffic by default.
+- **Default NACL** → allows all inbound/outbound traffic.
+- NACLs are useful for **blocking specific IP addresses** at the subnet level.
+
+### ✅ Key Points
+- Stateless: return traffic must be explicitly allowed.
+- Applied at the **subnet level**, not instance level.
+- Complementary to **Security Groups** (which operate at the instance level).
+
 
 ---
 
@@ -183,45 +211,101 @@ like the AMI, instance type, key pair, security groups, and user data.
 
 ---
 
-### Auto Scaling Group:
-*In real-life, the load on your websites and application can change
-*In the cloud, you can create and get rid of servers very quickly
-The goal of an Auto Scaling Group (ASG) is to:
-  • Scale out (add EC2 instances) to match an increased load
-  • Scale in (remove EC2 instances) to match a decreased load
-  • Ensure we have a minimum and a maximum number of EC2 instances running
-  • Automatically register new instances to a load balancer
-  • Re-create an EC2 instance in case a previous one is terminated (ex: if unhealthy)
-*ASG are free (you only pay for the underlying EC2 instances)
+## Auto Scaling Group (ASG)
+
+### 🌐 Real-life Context
+- Website and application load can change dynamically.
+- In the cloud, servers can be created or terminated quickly.
+
+### 🎯 Goals of an ASG
+- **Scale out** → Add EC2 instances to handle increased load.
+- **Scale in** → Remove EC2 instances when load decreases.
+- Maintain a **minimum** and **maximum** number of EC2 instances.
+- Automatically **register new instances** with a Load Balancer.
+- **Replace unhealthy instances** (re-create EC2 if terminated).
+
+### 💰 Cost
+- ASG itself is **free**.
+- You only pay for the **underlying EC2 instances** that are launched.
+
+### 📊 Key Benefits
+- High availability
+- Fault tolerance
+- Cost efficiency
+- Automatic elasticity
+
+
 
 ---
 
 ### Amazon RDS:
-*RDS stands for Relational Database Service
-*It’s a managed DB service for DB use SQL as a query language.
-*It allows you to create databases in the cloud that are managed by AWS
-.Postgres
-• MySQL
-• MariaDB
-• Oracle
-• Microsoft SQL Server
-• IBM DB2
-• Aurora (AWS Proprietary database)
-### RDS Multi AZ
-• SYNC replication
-• One DNS name – automatic app 
-failover to standby
-• Increase availability
-• Failover in case of loss of AZ, loss of 
-network, instance or storage failure
-• No manual intervention in apps
-• Not used for scaling
-• Note: The Read Replicas be setup as 
-Multi AZ for Disaster Recovery (DR)
+# Amazon RDS (Relational Database Service)
+
+## Overview
+- RDS is a managed database service by AWS.
+- It supports SQL as a query language.
+- It allows you to create and manage cloud databases without manual administration.
+
+## Supported Database Engines
+- PostgreSQL
+- MySQL
+- MariaDB
+- Oracle
+- Microsoft SQL Server
+- IBM DB2
+- Aurora (AWS proprietary database)
+
+## Amazon RDS Multi-AZ Deployment
+
+### 🔑 Key Features
+- **Synchronous replication** between primary and standby
+- **Single DNS name** – automatic application failover to standby
+- **High availability** – minimizes downtime
+- **Automatic failover** in case of:
+  - Loss of Availability Zone (AZ)
+  - Network failure
+  - Instance failure
+  - Storage failure
+- **No manual intervention** required in applications
 
 ---
 
 ### Process Steps:
+
+## Step-1: Create VPC and Subnets by using option called VPC and more
+
+
+
+## Step-2: Launch an EC2 Instances in Public Subnet and Private Subnet 
+
+
+## Step-3: Attach NAT Gateway to the two Private subnets
+
+## Step-4: Configure Security Groups 
+
+## Step-5: SSH to EC2 Instances 
+
+## Step-6: Create AMI image and Launch template 
+
+## Step-7: Launch New two instances in public and private subnets accordingly by using own AMI
+
+## Step-8: Create Target Groups for both External and Internal Load balancers
+
+## Step-9: Create Application load balancer for both Web and App layers
+
+## Step-10: Create RDS Data base for multi-AZ
+
+## Step-10: Create Subnet for RDS and Configure the necessary connection
+
+## Step-11: SSH from Web Tier to Application to Database
+
+## Step-11: Insert data into Database
+
+## Step-12: Verify Output 
+
+
+
+
 
 
 
