@@ -363,12 +363,7 @@ like the AMI, instance type, key pair, security groups, and user data.
 
 ## Step-8: Create Target Groups for both External and Internal Load balancers
                                        
-| Setting        | External ALB        | Internal ALB        |
-| -------------- | ------------------- | ------------------- |
-| Name           | External-ALB-App    | Internal-ALB-App    |
-| Type           | Application LB      | Application LB      |
-| Scheme         | Internet-facing     | Internal            |
-| VPC            | Your VPC            | Your VPC            |
+
 
 | Target Group   | External TG         | Internal TG         |
 | -------------- | ------------------- | ------------------- |
@@ -392,6 +387,16 @@ like the AMI, instance type, key pair, security groups, and user data.
 
 
 ## Step-9: Create Application load balancer for both Web and App layers
+
+| Setting        | External ALB        | Internal ALB        |
+| -------------- | ------------------- | ------------------- |
+| Name           | External-ALB-App    | Internal-ALB-App    |
+| Type           | Application LB      | Application LB      |
+| Scheme         | Internet-facing     | Internal            |
+| VPC            | Your VPC            | Your VPC            |
+
+
+
 
 ## Step-10: Create RDS Data base for multi-AZ
 
