@@ -382,6 +382,18 @@ CREATE TABLE Customers (
     Purchase_Date DATE,
     Bill_Amount DECIMAL(10,2)
     );
+
+***Example:***
+
+(Customer, Customer Name, Address, Gender, Mobile Number, Purchase Date, Bill Amount)
+VALUES 
+(10004, 'Prathap', 'Medak', 'Male', '9701184793', '2026-08-13', 450),
+(10005, 'Anitha', 'Hyderabad', 'Female', '9876543210', '2026-08-12', 1200),
+(10006, 'Ramesh', 'Warangal', 'Male', '9123456789', '2026-08-11', 800),
+(10007, 'Lakshmi', 'Medak', 'Female', '9445566778', '2026-08-08', 950),
+(10008, 'Arjun', 'Nizamabad', 'Male', '9556677889', '2026-08-09', 600),
+(10009, 'Sita', 'Karimnagar', 'Female', '9001122334', '2026-08-10', 1500);
+
 ```
 
 
