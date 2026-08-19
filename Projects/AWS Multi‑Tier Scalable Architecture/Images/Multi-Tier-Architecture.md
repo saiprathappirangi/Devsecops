@@ -132,10 +132,10 @@ A Public Subnet in AWS is a subnet inside your VPC that is directly connected to
 - Applied at the **subnet level**, not instance level.
 - Complementary to **Security Groups** (which operate at the instance level).
 
-
 ---
 
 ### EC2: EC2 = Elastic Compute Cloud = Infrastructure as a Service
+
 *virtual servers in the cloud
 *renting computing power on demand
 * We can choose the operating system, CPU, memory, storage, and networking configuration to suit your workload.
@@ -144,12 +144,11 @@ A Public Subnet in AWS is a subnet inside your VPC that is directly connected to
 
 ## Elastic Load Balancer (ELB)
 
-### 🔐 Overview
 - An **Elastic Load Balancer** is a **managed load balancer** provided by AWS.
 - Load balancers are servers that **forward traffic** to multiple downstream servers (e.g., EC2 instances).
 - ELB improves **availability, fault tolerance, and scalability** by distributing traffic intelligently.
 
-### ⚙️ Types of Load Balancers
+### Types of Load Balancers
 
 #### 1. Application Load Balancer (ALB)
 - Operates at **Layer 7** (Application Layer).
@@ -169,40 +168,26 @@ A Public Subnet in AWS is a subnet inside your VPC that is directly connected to
 - Best for: Deploying **security appliances** (firewalls, intrusion detection/prevention).
 - Features: Transparent traffic inspection, integrates with third-party appliances.
 
-### ✅ Key Points
-- ELB automatically scales to handle traffic.
-- Integrated with **Auto Scaling Groups** for elasticity.
-- Works seamlessly with **EC2, ECS, EKS, and Lambda**.
-- Provides **health checks** to route traffic only to healthy targets.
-
 ---
 
 ## Target Groups
 
-### 🔐 Overview
 - A **Target Group** is a logical grouping of targets:
   - **EC2 instances**
   - **IP addresses**
   - **Lambda functions**
 - Load balancers (ALB, NLB, GWLB) forward traffic to one or more target groups.
 
-### ⚙️ Health Checks
+### Health Checks
 - Each target group has its own **health check configuration**.
 - Only healthy targets receive traffic.
 - Health checks can be customized (path, interval, timeout, success codes).
 
-### 🎯 Routing with ALB
+### Routing with ALB
 - Application Load Balancers (ALB) support **rule-based routing**:
   - **Path-based routing** → e.g., `/app/*` → App target group.
   - **Host-based routing** → e.g., `api.example.com` → API target group.
 - Enables **microservices architecture** and **service isolation**.
-
-### ✅ Key Points
-- Target groups decouple load balancers from actual resources.
-- Multiple target groups can be attached to a single load balancer.
-- Supports dynamic scaling with Auto Scaling Groups.
-- Essential for **high availability** and **flexible traffic management**.
-
 
 ---
 
@@ -221,35 +206,20 @@ like the AMI, instance type, key pair, security groups, and user data.
 
 ## Auto Scaling Group (ASG)
 
-### 🌐 Real-life Context
 - Website and application load can change dynamically.
 - In the cloud, servers can be created or terminated quickly.
-
-### 🎯 Goals of an ASG
 - **Scale out** → Add EC2 instances to handle increased load.
 - **Scale in** → Remove EC2 instances when load decreases.
 - Maintain a **minimum** and **maximum** number of EC2 instances.
 - Automatically **register new instances** with a Load Balancer.
 - **Replace unhealthy instances** (re-create EC2 if terminated).
-
-### 💰 Cost
 - ASG itself is **free**.
 - You only pay for the **underlying EC2 instances** that are launched.
-
-### 📊 Key Benefits
-- High availability
-- Fault tolerance
-- Cost efficiency
-- Automatic elasticity
-
-
 
 ---
 
 ### Amazon RDS:
 # Amazon RDS (Relational Database Service)
-
-## Overview
 - RDS is a managed database service by AWS.
 - It supports SQL as a query language.
 - It allows you to create and manage cloud databases without manual administration.
@@ -264,8 +234,6 @@ like the AMI, instance type, key pair, security groups, and user data.
 - Aurora (AWS proprietary database)
 
 ## Amazon RDS Multi-AZ Deployment
-
-### 🔑 Key Features
 - **Synchronous replication** between primary and standby
 - **Single DNS name** – automatic application failover to standby
 - **High availability** – minimizes downtime
