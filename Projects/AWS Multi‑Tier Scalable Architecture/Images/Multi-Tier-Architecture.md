@@ -248,16 +248,44 @@ like the AMI, instance type, key pair, security groups, and user data.
 
 ### Process Steps:
 
+---
+
 ## Step-1: Create VPC and Subnets by using option called VPC and more
 
+![Create VPC and Subnets by using option called VPC and more](.png)
 
+---
 
 ## Step-2: Launch an EC2 Instances in Public Subnet and Private Subnet 
 
+* **EC2-1** → WEB-EC2-01 
+* **EC2-1** → APP-EC2-01
+
+![Launch an EC2 Instances in Public Subnet and Private Subnet](.png)
+
+---
 
 ## Step-3: Attach NAT Gateway to the two Private subnets
 
-## Step-4: Configure Security Groups 
+* ***NAT- GATEWAY*** → For both Private subnets - ***Regional***
+
+![Launch an EC2 Instances in Public Subnet and Private Subnet](.png)
+  
+---
+
+## Step-4: Configure Security Groups for all resources
+
+# AWS Security Group Rules
+
+| RESOURCES  | Protocol   | Port Range     | Source                  |  Description                         |
+|------------|------------|----------------|-------------------------|--------------------------------------|
+| WEB-EC2    | HTTP & SSH | 80, 22         | ALB-SG & 0.0.0.0/0      | Allow web traffic + admin access     |
+| APP-EC2    | TCP        | 22, 80, 3306   | WEB-SG, ALB-SG, RDS-SG  | Allow SSH, app traffic, DB access    |
+| INTER-ALB  | TCP        | 22             | 0.0.0.0/0               | Allow admin access if required       |
+| EXTER-ALB  | HTTP       | 80             | 0.0.0.0/0               | Public entry point for web traffic   |
+| RDS-SG     | TCP        | 3306           | APP-SG                  | Allow MySQL/Aurora from App servers  |
+
+
 
 ## Step-5: SSH to EC2 Instances 
 
