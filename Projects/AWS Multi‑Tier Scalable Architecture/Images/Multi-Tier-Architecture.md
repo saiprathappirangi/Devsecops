@@ -325,7 +325,11 @@ curl local:8080/health → OK
 
 ## Step-6: Create AMI image and Launch template 
 
+![Step-6: Create AMI image and Launch template](.png)
+
 ## Step-7: Launch New two instances in public and private subnets accordingly by using own AMI
+
+![Launch New two instances in public and private subnets accordingly by using own AMI](.png)
 
 ## Step-8: Create Target Groups for both External and Internal Load balancers
                                        
@@ -334,10 +338,10 @@ curl local:8080/health → OK
 | Target Group   | External TG         | Internal TG         |
 | -------------- | ------------------- | ------------------- |
 | Target Type    | Instances           | Instances           |
-| Name           | TG-App1             | TG-App1             |
+| Name           | TG-App              | TG-Web              |
 | Protocol       | HTTP                | HTTP                |
-| Port           | 80                  | 80                  |
-
+| Port           | 80                  | 8080                |
+| Path           | /                   | /api/*              |
 
 | Health Check   | External TG         | Internal TG         |
 | -------------- | ------------------- | ------------------- |
@@ -356,7 +360,7 @@ curl local:8080/health → OK
 | Name           | External-ALB-App    | Internal-ALB-App    |
 | Type           | Application LB      | Application LB      |
 | Scheme         | Internet-facing     | Internal            |
-| VPC            | Your VPC            | Your VPC            |
+| VPC            | Project VPC         | Project VPC         |
 
 
 
