@@ -287,6 +287,17 @@ like the AMI, instance type, key pair, security groups, and user data.
 ---
 
 ## Step-5: SSH to EC2 Instances 
+```bash
+ssh -i "C:\VCUBE DOCUMENTS\Hyderbadkeypair.pem" ubuntu@40.192.39.176
+sudo -i
+apt update -y
+apt install apache2 -y
+cd var/www/html
+rm index.html
+vim index.html (HTML Script)
+systemctl restart apache2
+```
+
 
 ## Step-6: Create AMI image and Launch template 
 
