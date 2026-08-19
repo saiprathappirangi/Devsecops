@@ -93,105 +93,41 @@ A Public Subnet in AWS is a subnet inside your VPC that is directly connected to
 ---
 
 ## Internet Gateway (IGW)
-
-### 🌐 Overview
 - An Internet Gateway allows resources (e.g., EC2 instances) in a **VPC** to connect to the **Internet**.
 - It scales **horizontally**, is **highly available**, and **redundant**.
 - Must be created **separately** from a VPC.
 - **One VPC ↔ One IGW** (a VPC can only be attached to one IGW, and an IGW can only be attached to one VPC).
-
-### ⚠️ Important Notes
-- An IGW **alone does not provide Internet access**.
-- You must also configure **Route Tables**:
-  - Add a route for `0.0.0.0/0` (IPv4) or `::/0` (IPv6).
-  - Target → Internet Gateway (IGW).
-- Without proper route table entries, instances will not be able to reach the Internet even if an IGW is attached.
-
-### ✅ Key Points
-- IGW enables **outbound traffic** from instances to the Internet and **inbound traffic** from the Internet to instances.
-- Works together with **Security Groups** and **NACLs** to control traffic.
-- Essential for **public subnets** in a VPC design.
-
-
 ---
 
 ## NAT Gateway (NATGW)
-
-### 🔐 Overview
 - AWS-managed **Network Address Translation (NAT)** service.
 - Provides **higher bandwidth**, **high availability**, and **no administration** overhead.
 - Billed **per hour** for usage and **per GB** of bandwidth.
 
-### ⚙️ Characteristics
-- Created in a **specific Availability Zone (AZ)**.
-- Uses an **Elastic IP** for outbound traffic.
-- Cannot be used by EC2 instances in the **same subnet** (only accessible from other subnets).
-- Requires an **Internet Gateway (IGW)** for outbound traffic:
-  - Private Subnet → NAT Gateway → IGW → Internet
+---
 
-### 📊 Performance
-- **5 Gbps** of bandwidth by default.
-- Automatically scales up to **100 Gbps**.
-
-### ✅ Key Points
+### Key Points
 - No **Security Groups** required or managed.
 - Ideal for allowing **private EC2 instances** to access the Internet (e.g., software updates, package downloads).
 - Ensures outbound connectivity while keeping instances **unreachable from the Internet**.
 
-
 ---
 
 ## Security Groups
-
-### 🔐 Overview
 - Security Groups are the **fundamentals of network security** in AWS.
 - They control how traffic is allowed **into or out of EC2 instances**.
 - Operate at the **instance level** (not subnet level like NACLs).
-
-### 📜 Rules
-- Security Groups contain **allow rules only** (no deny rules).
-- Rules can reference:
-  - **IP addresses** (CIDR ranges).
-  - **Other Security Groups** (for instance-to-instance communication).
-- All rules are evaluated before deciding whether to allow traffic.
-
-### ⚙️ Behavior
-- **Stateful**: return traffic is automatically allowed, regardless of rules.
-- Applied only when explicitly associated with an EC2 instance.
-- Default Security Group allows **all outbound traffic** but no inbound traffic.
-
-### ✅ Key Points
-- Best practice: restrict SSH (port 22) to your own IP, not `0.0.0.0/0`.
-- Use Security Group references for cleaner architecture (e.g., ALB SG → EC2 SG).
-- Multiple Security Groups can be attached to a single EC2 instance.
-
 
 ---
 
 ## Network Access Control List (NACL)
 
-### 🔐 Overview
 - NACLs act like a **firewall** controlling traffic **to and from subnets**.
 - Each subnet is associated with **one NACL**.
 - Newly created subnets are assigned the **Default NACL**.
-
-### 📜 NACL Rules
-- Rules are numbered **1–32766**.
-- **Lower numbers = higher precedence**.
-- The **first matching rule** determines the decision.
-- Example:
-  - Rule #100 → `ALLOW 10.0.0.10/32`
-  - Rule #200 → `DENY 10.0.0.10/32`
-  - Result → Allowed (because #100 has higher precedence).
-- The **last rule** is an asterisk `*` → denies traffic if no match.
-- AWS recommends adding rules in increments of **100**.
-
-### ⚠️ Behavior
 - **Newly created NACLs** → deny all inbound/outbound traffic by default.
 - **Default NACL** → allows all inbound/outbound traffic.
 - NACLs are useful for **blocking specific IP addresses** at the subnet level.
-
-### ✅ Key Points
 - Stateless: return traffic must be explicitly allowed.
 - Applied at the **subnet level**, not instance level.
 - Complementary to **Security Groups** (which operate at the instance level).
