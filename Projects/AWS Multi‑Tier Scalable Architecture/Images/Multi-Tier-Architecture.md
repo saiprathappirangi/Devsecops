@@ -274,10 +274,7 @@ like the AMI, instance type, key pair, security groups, and user data.
 ---
 
 ## Step-4: Configure Security Groups for all resources
-
----
-
-# AWS Security Group Rules
+### AWS Security Group Rules
 
 | RESOURCES  | Protocol   | Port Range     | Source                  |  Description                         |
 |------------|------------|----------------|-------------------------|--------------------------------------|
