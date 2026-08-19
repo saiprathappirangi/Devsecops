@@ -275,6 +275,8 @@ like the AMI, instance type, key pair, security groups, and user data.
 
 ## Step-4: Configure Security Groups for all resources
 
+---
+
 # AWS Security Group Rules
 
 | RESOURCES  | Protocol   | Port Range     | Source                  |  Description                         |
@@ -285,7 +287,7 @@ like the AMI, instance type, key pair, security groups, and user data.
 | EXTER-ALB  | HTTP       | 80             | 0.0.0.0/0               | Public entry point for web traffic   |
 | RDS-SG     | TCP        | 3306           | APP-SG                  | Allow MySQL/Aurora from App servers  |
 
-
+---
 
 ## Step-5: SSH to EC2 Instances 
 
