@@ -287,6 +287,7 @@ like the AMI, instance type, key pair, security groups, and user data.
 ---
 
 ## Step-5: SSH to EC2 Instances 
+***Frontend*** 
 ```bash
 ssh -i "C:\VCUBE DOCUMENTS\Hyderbadkeypair.pem" ubuntu@40.192.39.176
 sudo -i
@@ -297,6 +298,29 @@ rm index.html
 vim index.html (HTML Script)
 systemctl restart apache2
 ```
+
+***Backend***
+
+```bash
+vim demokeypair.pem
+ssh -i "C:\VCUBE DOCUMENTS\demokeypair.pem" ubuntu@40.192.39.176
+sudo -i
+cd backend
+apt update -y
+apt install npm -y
+apt install nodejs -y
+node -v
+npm -v
+vim server.js
+vim .env
+npm init -y
+npm install express mysql2 dotenv
+node sever.js → Server is running on port 8080 / Connected to MYSQl
+pkill node → Terminated nohup node server.js
+netstat -tuln | grep 4000 → tcp 0 0.0.0:8080
+curl local:8080/health → OK
+```
+---
 
 
 ## Step-6: Create AMI image and Launch template 
