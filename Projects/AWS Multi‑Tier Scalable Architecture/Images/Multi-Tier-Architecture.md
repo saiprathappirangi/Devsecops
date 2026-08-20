@@ -256,20 +256,19 @@ like the AMI, instance type, key pair, security groups, and user data.
 ---
 
 ## Step-2: Launch an EC2 Instances in Public Subnet and Private Subnet 
+![Launch an EC2 Instances in Public Subnet and Private Subnet](EC2(2).png)
 
 * **EC2-1** → WEB-EC2-01 
 * **EC2-1** → APP-EC2-01
 
-![Launch an EC2 Instances in Public Subnet and Private Subnet](EC2(2).png)
 
 ---
 
 ## Step-3: Attach NAT Gateway to the two Private subnets
+![Launch an EC2 Instances in Public Subnet and Private Subnet](.png)
 
 * ***NAT- GATEWAY*** → For both Private subnets - ***Regional***
-
-![Launch an EC2 Instances in Public Subnet and Private Subnet](.png)
-  
+ 
 ---
 
 ## Step-4: Configure Security Groups for all resources
