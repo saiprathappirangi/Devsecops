@@ -328,9 +328,10 @@ curl local:8080/health → OK
 
 ![ Step-7: Launch New two instances in public and private subnets accordingly by using own AMI](LAN-TEMP.png)
 
-## Step-8: Create Target Groups for both External and Internal Load balancers
-                                       
 
+
+## Step-8: Create Target Groups for both External and Internal Load balancers with Path based routing
+[ Step-8: Create Target Groups for both External and Internal Load balancers with Path based routing](.png)                                      
 
 | Target Group   | External TG         | Internal TG         |
 | -------------- | ------------------- | ------------------- |
