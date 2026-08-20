@@ -344,8 +344,8 @@ curl local:8080/health → OK
 | Health Check   | External TG         | Internal TG         |
 | -------------- | ------------------- | ------------------- |
 | Protocol       | HTTP                | HTTP                |
-| Port           | 80                  | 80                  |
-| Path           | /health             | /health             |
+| Port           | 80                  | 8080                |
+| Path           | /                   | /health             |
 
 ## Step-9: Create Application load balancer for both Web and App layers
 
