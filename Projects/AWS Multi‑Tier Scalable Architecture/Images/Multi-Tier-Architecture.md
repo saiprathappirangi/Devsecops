@@ -361,10 +361,10 @@ curl local:8080/health → OK
 ![ Step-10: Create RDS Data base for multi-AZ and EC2 End point Connection](RDS-MULTI.png)
 
 
-## Step-10: Create Subnet for RDS and Configure the necessary connections 
+## Step-11: Create Subnet for RDS and Configure the necessary connections 
 ![Step-10: Create Subnet for RDS and Configure the necessary connections](RDS-SUB.png)
 
-## Step-11: Horizontal Scaling With the help of ASG
+## Step-12: Horizontal Scaling With the help of ASG
 ```bash
 +-----------------------------+
 |         Web Tier            |
@@ -393,7 +393,7 @@ curl local:8080/health → OK
 +-----------------------------+
 ```
 
-## Step-11: Linux Commands used SSH from Web Tier to Application to Database
+## Step-13: Linux Commands used SSH from Web Tier to Application to Database
 
 ```bash
 ssh -i "/c:/VCUBE DOCUMENTS/Custumkeypair.pem"@Ubuntu
@@ -408,7 +408,7 @@ mysql -h end point -u admin -p
 Password: Prathap123
 ````
 
-### Step-11: Insert data into Database
+### Step-14: Insert data into Database
 ```bash
 Show dataabses;
 create database prathap;
@@ -438,7 +438,7 @@ VALUES
 ```
 
 
-### Step-12: Verify Output 
+### Step-15: Verify Output 
 ![Step-12: Verify Output](RDS-Outout.png)
 
 
