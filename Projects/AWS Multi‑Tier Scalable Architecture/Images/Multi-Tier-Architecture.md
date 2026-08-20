@@ -256,7 +256,7 @@ like the AMI, instance type, key pair, security groups, and user data.
 ---
 
 ## Step-2: Launch an EC2 Instances in Public Subnet and Private Subnet 
-![ Step-2: Launch an EC2 Instances in Public Subnet and Private Subnet](EC2.png)
+![ Step-2: Launch an EC2 Instances in Public Subnet and Private Subnet](EC.png)
 
 * **EC2-1** → WEB-EC2-01 
 * **EC2-1** → APP-EC2-01
