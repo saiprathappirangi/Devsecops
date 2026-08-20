@@ -418,7 +418,7 @@ VALUES
 
 
 ### Step-12: Verify Output 
-![Step-12: Verify Output](Images/RDS-Outout.png)
+![Step-12: Verify Output](RDS-Outout.png)
 
 
 
