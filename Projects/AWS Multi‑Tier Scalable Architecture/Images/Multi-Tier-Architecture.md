@@ -419,7 +419,7 @@ VALUES
 
 ### Step-12: Verify Output 
 
-![Step-12: Verify Output ](images/RDS-Outout.png)
+![Step-12: Verify Output ](Projects/AWS Multi‑Tier Scalable Architecture/Images/RDS-Outout.png)
 
 
 
