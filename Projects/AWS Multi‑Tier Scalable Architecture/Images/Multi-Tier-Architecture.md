@@ -365,7 +365,31 @@ curl local:8080/health → OK
 ![Step-10: Create Subnet for RDS and Configure the necessary connections](RDS-SUB.png)
 
 ## Step-11: Horizontal Scaling With the help of ASG
-![ Step-11: Horizontal Scaling With the help of ASG](.png)
+```bash
++-----------------------------+
+|         Web Tier            |
+|-----------------------------|
+| EC2 Instances (Frontend)    |
+| Auto Scaling Group (ASG)    |
+| Behind Application LB (ALB) |
+| Scaling Policy:             |
+| - Requests > 200/target     |
+| - Min=2, Max=6, Desired=3   |
++-----------------------------+
+              |
+              v
++-----------------------------+
+|      Application Tier       |
+|-----------------------------|
+| EC2 Instances (Backend)     |
+| Node.js / Express           |
+| Auto Scaling Group (ASG)    |
+| Private Subnets             |
+| Scaling Policy:             |
+| - CPU > 70%                 |
+| - Min=2, Max=5, Desired=2   |
++-----------------------------+
+```
 
 ## Step-11: Linux Commands used SSH from Web Tier to Application to Database
 
