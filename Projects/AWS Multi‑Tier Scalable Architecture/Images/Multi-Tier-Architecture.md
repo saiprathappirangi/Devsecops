@@ -260,7 +260,7 @@ like the AMI, instance type, key pair, security groups, and user data.
 * **EC2-1** → WEB-EC2-01 
 * **EC2-1** → APP-EC2-01
 
-![Launch an EC2 Instances in Public Subnet and Private Subnet](.png)
+![Launch an EC2 Instances in Public Subnet and Private Subnet](EC2(2).png)
 
 ---
 
@@ -323,8 +323,7 @@ curl local:8080/health → OK
 
 
 ## Step-6: Create AMI image and Launch template 
-
-![Step-6: Create AMI image and Launch template](.png)
+![Step-6: Create AMI image and Launch template](AMI.png)
 
 ## Step-7: Launch New two instances in public and private subnets accordingly by using own AMI
 
