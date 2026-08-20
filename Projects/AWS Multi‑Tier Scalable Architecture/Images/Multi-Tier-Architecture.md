@@ -246,7 +246,7 @@ like the AMI, instance type, key pair, security groups, and user data.
 
 ---
 
-### Process Steps:
+## Process Steps:
 
 ---
 
