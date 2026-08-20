@@ -347,10 +347,6 @@ curl local:8080/health → OK
 | Port           | 80                  | 80                  |
 | Path           | /health             | /health             |
 
-
- 
-
-
 ## Step-9: Create Application load balancer for both Web and App layers
 
 | Setting        | External ALB        | Internal ALB        |
@@ -361,14 +357,15 @@ curl local:8080/health → OK
 | VPC            | Project VPC         | Project VPC         |
 
 
-
-
 ## Step-10: Create RDS Data base for multi-AZ and EC2 End point Connection
 ![ Step-10: Create RDS Data base for multi-AZ and EC2 End point Connection](RDS-MULTI.png)
 
 
 ## Step-10: Create Subnet for RDS and Configure the necessary connections 
 ![Step-10: Create Subnet for RDS and Configure the necessary connections](RDS-SUB.png)
+
+## Step-11: Horizontal Scaling With the help of ASG
+![ Step-11: Horizontal Scaling With the help of ASG](.png)
 
 ## Step-11: Linux Commands used SSH from Web Tier to Application to Database
 
