@@ -372,6 +372,7 @@ curl local:8080/health → OK
 | EC2 Instances (Frontend)    |
 | Auto Scaling Group (ASG)    |
 | Behind Application LB (ALB) |
+| With AMI & Launch Template  |
 | Scaling Policy:             |
 | - Requests > 200/target     |
 | - Min=2, Max=6, Desired=3   |
@@ -383,6 +384,7 @@ curl local:8080/health → OK
 |-----------------------------|
 | EC2 Instances (Backend)     |
 | Node.js / Express           |
+| With AMI & Launch Template  |
 | Auto Scaling Group (ASG)    |
 | Private Subnets             |
 | Scaling Policy:             |
