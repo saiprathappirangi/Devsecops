@@ -419,7 +419,7 @@ VALUES
 
 ### Step-12: Verify Output 
 
-![Verify output](OutPut.png)
+![Verify output](RDS-Outout.png)
 
 
 
