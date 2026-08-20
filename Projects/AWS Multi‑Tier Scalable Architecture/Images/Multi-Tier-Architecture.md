@@ -331,7 +331,7 @@ curl local:8080/health → OK
 
 
 ## Step-8: Create Target Groups for both External and Internal Load balancers with Path based routing
-[ Step-8: Create Target Groups for both External and Internal Load balancers with Path based routing](.png)                                      
+[ Step-8: Create Target Groups for both External and Internal Load balancers with Path based routing](ALB-PATH.png)                                      
 
 | Target Group   | External TG         | Internal TG         |
 | -------------- | ------------------- | ------------------- |
