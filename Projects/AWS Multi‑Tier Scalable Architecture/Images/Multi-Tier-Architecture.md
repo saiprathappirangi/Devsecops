@@ -251,8 +251,7 @@ like the AMI, instance type, key pair, security groups, and user data.
 ---
 
 ## Step-1: Create VPC and Subnets by using option called VPC and more
-![Step-1: Create VPC and Subnets by using option called VPC and more](VPC and More.png)
-
+![ Step-1: Create VPC and Subnets by using option called VPC and more](Project-1.png)
 ---
 
 ## Step-2: Launch an EC2 Instances in Public Subnet and Private Subnet 
