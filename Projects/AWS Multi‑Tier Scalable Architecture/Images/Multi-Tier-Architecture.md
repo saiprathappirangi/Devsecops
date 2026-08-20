@@ -326,7 +326,7 @@ curl local:8080/health → OK
 
 ## Step-7: Launch New two instances in public and private subnets accordingly by using own AMI
 
-![Launch New two instances in public and private subnets accordingly by using own AMI](.png)
+![ Step-7: Launch New two instances in public and private subnets accordingly by using own AMI](LAN-TEMP.png)
 
 ## Step-8: Create Target Groups for both External and Internal Load balancers
                                        
@@ -362,8 +362,8 @@ curl local:8080/health → OK
 
 
 
-## Step-10: Create RDS Data base for multi-AZ
-![Step-10: Create RDS Data base for multi-AZ](.png)
+## Step-10: Create RDS Data base for multi-AZ and EC2 End point Connection
+![ Step-10: Create RDS Data base for multi-AZ and EC2 End point Connection](.png)
 
 
 ## Step-10: Create Subnet for RDS and Configure the necessary connections 
