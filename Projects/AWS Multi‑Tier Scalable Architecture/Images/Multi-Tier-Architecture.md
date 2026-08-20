@@ -265,7 +265,7 @@ like the AMI, instance type, key pair, security groups, and user data.
 ---
 
 ## Step-3: Attach NAT Gateway to the two Private subnets
-![Launch an EC2 Instances in Public Subnet and Private Subnet](.png)
+![Launch an EC2 Instances in Public Subnet and Private Subnet](NAT.png)
 
 * ***NAT- GATEWAY*** → For both Private subnets - ***Regional***
  
