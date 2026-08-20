@@ -136,8 +136,8 @@ A Public Subnet in AWS is a subnet inside your VPC that is directly connected to
 
 ### EC2: EC2 = Elastic Compute Cloud = Infrastructure as a Service
 
-*virtual servers in the cloud
-*renting computing power on demand
+* Virtual servers in the cloud
+* Renting computing power on demand
 * We can choose the operating system, CPU, memory, storage, and networking configuration to suit your workload.
 
 ---
