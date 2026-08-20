@@ -363,7 +363,7 @@ curl local:8080/health → OK
 
 
 ## Step-10: Create RDS Data base for multi-AZ and EC2 End point Connection
-![ Step-10: Create RDS Data base for multi-AZ and EC2 End point Connection](.png)
+![ Step-10: Create RDS Data base for multi-AZ and EC2 End point Connection](RDS-MULTI.png)
 
 
 ## Step-10: Create Subnet for RDS and Configure the necessary connections 
