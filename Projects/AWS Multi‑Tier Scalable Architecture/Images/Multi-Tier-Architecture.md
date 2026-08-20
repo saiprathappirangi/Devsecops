@@ -251,7 +251,7 @@ like the AMI, instance type, key pair, security groups, and user data.
 ---
 
 ## Step-1: Create VPC and Subnets by using option called VPC and more
-![Step-1: Create VPC and Subnets](images/VPC and More.png)
+![Step-1: Create VPC and Subnets](VPCandMore.png)
 
 ---
 
