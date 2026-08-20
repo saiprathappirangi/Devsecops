@@ -366,8 +366,11 @@ curl local:8080/health → OK
 
 
 ## Step-10: Create RDS Data base for multi-AZ
+![Step-10: Create RDS Data base for multi-AZ](.png)
 
-## Step-10: Create Subnet for RDS and Configure the necessary connection
+
+## Step-10: Create Subnet for RDS and Configure the necessary connections 
+![Step-10: Create Subnet for RDS and Configure the necessary connections](.png)
 
 ## Step-11: Linux Commands used SSH from Web Tier to Application to Database
 
