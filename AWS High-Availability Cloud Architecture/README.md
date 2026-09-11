@@ -298,7 +298,7 @@ For `prathap.shop`, Route 53 hosts the domain and points it to the **CloudFront 
 ### Step-1: Create VPC and Subnets by using option called VPC and more
 Dedicated VPC with public subnets for EC2 and private subnets for RDS, plus Internet gateways and route tables configured automatically.
 
-![ Step-1: Create VPC and Subnets by using option called VPC and more](images/Architecture.png)
+![ Step-1: Create VPC and Subnets by using option called VPC and more](images/VPCandmore.png)
 
 ---
 
