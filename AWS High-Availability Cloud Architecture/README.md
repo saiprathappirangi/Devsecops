@@ -289,7 +289,7 @@ For `prathap.shop`, Route 53 hosts the domain and points it to the **CloudFront 
 - **Security Groups** enforce controlled communication between the ALB, EC2, and RDS layers
 
 #### Traffic flow
-![Traffic flow](images/Architecture.png)
+![ Traffic flow](Images/flow.png)
 
 ---
 
