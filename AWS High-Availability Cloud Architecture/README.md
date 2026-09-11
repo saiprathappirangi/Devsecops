@@ -429,7 +429,7 @@ ACM is used to create an SSL/TLS certificate for the **prathap.shop** domain so 
    - Add the provided CNAME record in your DNS
    - Once validated, status changes to **Issued**
 #### Screenshot: ACM certificate issued
-![Screenshot: ACM certificate issued](images/ACM_validation_pending.png)
+![ Screenshot: ACM certificate issued](Images/ACM.png)
 
 ---
 
