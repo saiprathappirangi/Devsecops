@@ -379,6 +379,9 @@ http://<EC2-Public-IP>/customer.php
 - **Health Check Path:** `/`
 - **Registered Targets:** EC2 instances in `us-east-1a` and `us-east-1b`
 
+#### Screenshot: Target Groups for EC2 Instances
+![ Screenshot: Target Groups for EC2 Instances](Images/TG.png)
+
 ---
 
 ### Step-6: Create Application Load Balancer
