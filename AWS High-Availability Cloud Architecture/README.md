@@ -463,6 +463,8 @@ ACM is used to create an SSL/TLS certificate for the **prathap.shop** domain so 
    - DNS propagation may take up to **24 hours** globally.
    - Use tools like `nslookup prathap.shop` or [dnschecker.org](https://dnschecker.org) to verify.
 
+#### Screenshot: Route 53 Hosted Zones
+![ Screenshot: Route 53 Hosted Zones](Images/Route53.png)
 ---
 
 ### Step-9: Create CloudFront Distribution
