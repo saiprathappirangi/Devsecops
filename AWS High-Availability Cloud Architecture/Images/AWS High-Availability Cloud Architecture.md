@@ -225,11 +225,17 @@ A Public Subnet in AWS is a subnet inside your VPC that is directly connected to
 - **Security Groups** enforce controlled communication between the ALB, EC2, and RDS layers
 
 ## Traffic flow
-![Traffic flow:](images/Architecture.png)
+![Traffic flow](images/Architecture.png)
 
 ## Process steps:
 
-### Step-1: Create VPC 
+### Step-1: Create VPC and Subnets by using option called VPC and more
+Dedicated VPC with public subnets for EC2 and private subnets for RDS, plus Internet gateways and route tables configured automatically.
+
+![ Step-1: Create VPC and Subnets by using option called VPC and more](images/Architecture.png)
+
+### Step-2: Create Security Groups
+
 
 
 
