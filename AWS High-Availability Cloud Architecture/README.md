@@ -323,7 +323,9 @@ Launch two EC2 instances:
 Web EC2 1 → Public Subnet 1
 Web EC2 2 → Public Subnet 2
 ```
-![ Step-3: Launch Web Tier EC2 Instance](images/Architecture.png)
+
+#### Screenshot: Web EC2 Instances
+![ Screenshot: Web EC2 Instances](Images/EC2.png)
 
 ---
 
