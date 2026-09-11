@@ -200,7 +200,7 @@ A Public Subnet in AWS is a subnet inside your VPC that is directly connected to
 
 ## Route53
 
-# Process Step:
+## Application Request Lifecycle (End‑to‑End Request Flow)
 
 ## Web Tier
 - **AWS Two EC2** instances
