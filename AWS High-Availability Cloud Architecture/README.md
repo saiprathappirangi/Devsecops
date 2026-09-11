@@ -357,7 +357,7 @@ http://<EC2-Public-IP>/customer.php
 ---
 
 ### Create RDS Data base for multi-AZ and EC2 End point Connection
-![Create RDS Data base for multi-AZ and EC2 End point Connection](RDS-EP.png)
+![ Create RDS Data base for multi-AZ and EC2 End point Connection](RDS-EP.png)
 
 ```bash
 ssh -i "/c:/VCUBE DOCUMENTS/Custumkeypair.pem"@Ubuntu
