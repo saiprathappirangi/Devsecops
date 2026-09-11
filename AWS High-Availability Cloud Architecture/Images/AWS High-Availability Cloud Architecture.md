@@ -229,7 +229,7 @@ A Public Subnet in AWS is a subnet inside your VPC that is directly connected to
 
 ## Process steps:
 
-### Step-1: 
+### Step-1: Create VPC 
 
 
 
