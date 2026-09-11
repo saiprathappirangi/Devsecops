@@ -74,13 +74,6 @@ A Public Subnet in AWS is a subnet inside your VPC that is directly connected to
 - **One VPC ↔ One IGW** (a VPC can only be attached to one IGW, and an IGW can only be attached to one VPC).
 ---
 
-## NAT Gateway (NATGW)
-- AWS-managed **Network Address Translation (NAT)** service.
-- Provides **higher bandwidth**, **high availability**, and **no administration** overhead.
-- Billed **per hour** for usage and **per GB** of bandwidth.
-
----
-
 ### Key Points
 - No **Security Groups** required or managed.
 - Ideal for allowing **private EC2 instances** to access the Internet (e.g., software updates, package downloads).
