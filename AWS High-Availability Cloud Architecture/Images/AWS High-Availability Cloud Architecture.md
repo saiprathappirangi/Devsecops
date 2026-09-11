@@ -166,19 +166,6 @@ A Public Subnet in AWS is a subnet inside your VPC that is directly connected to
 
 ---
 
-### Launch template:
-*A Launch Template in AWS EC2 is a saved blueprint that contains all the settings needed to start an instance — 
-like the AMI, instance type, key pair, security groups, and user data.
-
---- 
-
-### AMI:
-*An AMI (Amazon Machine Image) is a pre-configured template that contains the operating system, application server, and applications needed to launch an EC2 instance.
-
-*Ready-made image used to create EC2 instances.
-
----
-
 ### Amazon RDS:
 # Amazon RDS (Relational Database Service)
 - RDS is a managed database service by AWS.
@@ -204,20 +191,17 @@ like the AMI, instance type, key pair, security groups, and user data.
   - Instance failure
   - Storage failure
 - **No manual intervention** required in applications
-- Amazon VPC
-- Public Subnets
-- Private Subnets
-- Amazon EC2
-- Internet Gateway
-- Security Groups
-- Application Load Balancer (ALB)
-- Route Tables
-- Amazon RDS
-- ACM
-- Cloud front
-- WAF
-- Route53
-  
+
+## ACM
+
+## Cloud Front
+
+## WAF
+
+## Route53
+
+# Process Step:
+
 ## Step-1: Web Tier
 - **AWS Two EC2** instances
 - Deployed in **Public Subnets**
