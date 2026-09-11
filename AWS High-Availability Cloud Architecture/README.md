@@ -311,7 +311,8 @@ Dedicated VPC with public subnets for EC2 and private subnets for RDS, plus Inte
 | WEB-EC2-SG | TCP        | 22, 80, 443    | ALB-SG, Admin | Allow traffic from ALB + SSH admin   |
 | RDS-SG     | TCP        | 3306           | WEB-EC2-SG    | Allow DB access only from Web EC2    |
 
-![ Step-2: AWS Security Group Rules](images/Architecture.png)
+#### Screenshot: Security Group rules 
+![ Screenshot: Security Group rules](Images/security.png)
 
 ---
 
