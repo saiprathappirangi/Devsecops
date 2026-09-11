@@ -553,7 +553,7 @@ AWS WAF protects the application from common web exploits (SQL injection, XSS, b
    - (Optional) You can also attach to ALB if needed.
 
 #### Flow Diagram
-
+```text
    User Request
          |
          v
@@ -565,12 +565,26 @@ Application Load Balancer (ALB)
          v
 EC2 Instances → RDS
 
+```
+
+#### Screenshot: AWS WAF (Web Application Firewall)
+![ Screenshot: AWS WAF (Web Application Firewall)](Images/WAF.png)
+
 ---
 
 ### Step-11: Final Output
 Once the Route 53 record is created, the domain `prathap.shop` will correctly resolve to the CloudFront distribution.
 
-#### Screenshot: Final output
-![Screenshot- Final output](images/output.png)
+#### Screenshot: Output ALB Webserver1
+![ Screenshot: Output ALB Webserver1](Images/ALBweb-1out.png)
+
+#### Screenshot: Output ALB Webserver2
+![ Screenshot: Output ALB Webserver2](Images/ALBweb-2out.png)
+
+#### Screenshot: Output CloudFront
+![ Screenshot: Output CloudFront](Images/Cloudforntout.png)
+
+#### Screenshot: Output DNS Route53 
+![Screenshot: Output DNS Route53](Images/Route53out.png)
 
 ---
