@@ -325,7 +325,7 @@ Web EC2 2 → Public Subnet 2
 ```
 
 #### Screenshot: Web EC2 Instances
-![ Screenshot: Web EC2 Instances](Images/EC2.png)
+![ Screenshot: Web EC2 Instances](Images/WEB-EC2.png)
 
 ---
 
