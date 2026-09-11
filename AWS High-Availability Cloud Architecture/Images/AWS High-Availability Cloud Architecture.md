@@ -202,27 +202,27 @@ A Public Subnet in AWS is a subnet inside your VPC that is directly connected to
 
 # Process Step:
 
-## Step-1: Web Tier
+## Web Tier
 - **AWS Two EC2** instances
 - Deployed in **Public Subnets**
 - Load Distributed across **two Availability Zones**
 - Receives user requests through an **Application Load Balancer** (ELB)
 
-## Step-2: Database Tier
+## Database Tier
 - **Amazon RDS** deployed in **private database subnets**  
 - **Isolated from direct internet access** for enhanced security  
 - **Accessible only from the Application Tier** within the VPC  
 - **Primary Writer instance** handles all database write operations  
 - **Read Replica** supports read workloads, improving performance and scalability
 
-## Step-3: Application Traffic Flow and Security Layer
+## Application Traffic Flow and Security Layer
 - **Amazon Route 53** handles DNS resolution for the application domain  
 - **Amazon CloudFront** serves as the global entry point for application traffic  
 - **AWS WAF** protects against common web application exploits  
 - **AWS Certificate Manager (ACM)** provides SSL/TLS certificates for secure HTTPS communication  
 - **Application Load Balancer (ALB)** distributes incoming traffic across EC2 instances
 
-## Step-4: Networking & Subnet Layer
+## Networking & Subnet Layer
 - **Dedicated AWS Virtual Private Cloud (VPC)** in the **North Virginia (us-east-1) region**  
 - Spans **two Availability Zones**:  
   - `us-east-1a`  
