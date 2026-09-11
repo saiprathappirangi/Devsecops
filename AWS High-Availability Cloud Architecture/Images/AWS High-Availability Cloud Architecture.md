@@ -70,7 +70,7 @@ A Public Subnet in AWS is a subnet inside your VPC that is directly connected to
 
 ---
 
-## Internet Gateway (IGW)
+### Internet Gateway (IGW)
 - An Internet Gateway allows resources (e.g., EC2 instances) in a **VPC** to connect to the **Internet**.
 - It scales **horizontally**, is **highly available**, and **redundant**.
 - Must be created **separately** from a VPC.
@@ -84,14 +84,14 @@ A Public Subnet in AWS is a subnet inside your VPC that is directly connected to
 
 ---
 
-## Security Groups
+### Security Groups
 - Security Groups are the **fundamentals of network security** in AWS.
 - They control how traffic is allowed **into or out of EC2 instances**.
 - Operate at the **instance level** (not subnet level like NACLs).
 
 ---
 
-## Network Access Control List (NACL)
+### Network Access Control List (NACL)
 
 - NACLs act like a **firewall** controlling traffic **to and from subnets**.
 - Each subnet is associated with **one NACL**.
@@ -113,7 +113,7 @@ A Public Subnet in AWS is a subnet inside your VPC that is directly connected to
 
 ---
 
-## Elastic Load Balancer (ELB)
+### Elastic Load Balancer (ELB)
 
 - An **Elastic Load Balancer** is a **managed load balancer** provided by AWS.
 - Load balancers are servers that **forward traffic** to multiple downstream servers (e.g., EC2 instances).
@@ -177,6 +177,8 @@ A Public Subnet in AWS is a subnet inside your VPC that is directly connected to
 - IBM DB2
 - Aurora (AWS proprietary database)
 
+---
+
 ### Amazon RDS Multi-AZ Deployment
 - **Synchronous replication** between primary and standby
 - **Single DNS name** – automatic application failover to standby
@@ -188,15 +190,74 @@ A Public Subnet in AWS is a subnet inside your VPC that is directly connected to
   - Storage failure
 - **No manual intervention** required in applications
 
-### ACM
+---
 
-### Cloud Front
+### AWS Certificate Manager (ACM)
 
-### WAF
+#### Overview
+AWS Certificate Manager (ACM) is a managed service that provides free SSL/TLS certificates to secure your applications with HTTPS. It automates certificate provisioning, renewal, and deployment, reducing manual effort.
 
-### Route53
+#### Key Points
+- Issues public certificates for domains like `prathap.shop`.
+- Supports DNS validation for quick, automated approval.
+- Integrates seamlessly with CloudFront, ALB, and API Gateway.
+- Ensures encrypted, secure communication between users and your application.
 
-## Application Request Lifecycle (End‑to‑End Request Flow)
+---
+
+### Amazon CloudFront
+
+##### Overview
+Amazon CloudFront is a fast, secure Content Delivery Network (CDN) service that delivers data, videos, applications, and APIs to users globally with low latency and high transfer speeds.
+
+#### Key Points
+- **Global Edge Network:** Distributes content through worldwide edge locations for faster access.  
+- **Security:** Integrates with AWS WAF and ACM to provide DDoS protection and HTTPS encryption.  
+- **Scalability:** Automatically handles traffic spikes without manual intervention.  
+- **Integration:** Works seamlessly with Route 53, ALB, and S3 to deliver applications securely.  
+
+#### Usage in Project
+In this architecture:
+- CloudFront acts as the **public entry point** for `prathap.shop`.  
+- It forwards requests to the **Application Load Balancer (ALB)**.  
+- Configured to **redirect HTTP to HTTPS** using the ACM certificate.  
+- Provides caching and security before traffic reaches EC2 and RDS.
+
+---
+
+### AWS WAF (Web Application Firewall)
+
+#### Overview
+AWS WAF is a managed firewall that protects web applications from common threats like SQL injection, cross‑site scripting (XSS), and malicious bots.
+
+#### Key Points
+- Blocks harmful requests before they reach CloudFront or ALB.  
+- Provides **AWS Managed Rules** for quick, reliable protection.  
+- Supports custom rules (IP, geo, patterns).  
+- Integrates with CloudFront for global coverage.  
+
+#### Usage in Project
+For `prathap.shop`, WAF is attached to the **CloudFront distribution**, ensuring only secure traffic reaches the ALB, EC2, and RDS layers.
+
+---
+
+### Amazon Route 53
+
+#### Overview
+Amazon Route 53 is a scalable DNS service that routes user requests to applications hosted on AWS.
+
+#### Key Points
+- Manages domains like `prathap.shop`.  
+- Translates domain names into IP addresses.  
+- Supports routing policies and health checks.  
+- Integrates seamlessly with CloudFront and ALB.  
+
+#### Usage in Project
+For `prathap.shop`, Route 53 hosts the domain and points it to the **CloudFront distribution**, ensuring all traffic flows securely into the architecture.
+
+---
+
+#### Application Request Lifecycle (End‑to‑End Request Flow)
 
 #### Web Tier
 - **AWS Two EC2** instances
@@ -230,12 +291,16 @@ A Public Subnet in AWS is a subnet inside your VPC that is directly connected to
 #### Traffic flow
 ![Traffic flow](images/Architecture.png)
 
+---
+
 ## Process steps:
 
 ### Step-1: Create VPC and Subnets by using option called VPC and more
 Dedicated VPC with public subnets for EC2 and private subnets for RDS, plus Internet gateways and route tables configured automatically.
 
 ![ Step-1: Create VPC and Subnets by using option called VPC and more](images/Architecture.png)
+
+---
 
 ### Step-2: AWS Security Group Rules
 
@@ -247,6 +312,8 @@ Dedicated VPC with public subnets for EC2 and private subnets for RDS, plus Inte
 
 ![ Step-2: AWS Security Group Rules](images/Architecture.png)
 
+---
+
 ### Step-3: Launch Web Tier EC2 Instances
 Launch two EC2 instances:
 
@@ -255,6 +322,8 @@ Web EC2 1 → Public Subnet 1
 Web EC2 2 → Public Subnet 2
 ```
 ![ Step-3: Launch Web Tier EC2 Instance](images/Architecture.png)
+
+---
 
 ### Step-4: SSH Into EC2 Instances 
 ***Web tier*** 
@@ -275,6 +344,8 @@ sudo chown www-data:www-data /var/www/html/customer.php
 sudo chmod 644 /var/www/html/customer.php
 http://<EC2-Public-IP>/customer.php
 ```
+
+---
 
 ### Step-5: Create Target Groups for Web tier EC2 Instances
 #### Target Group Configuration
@@ -304,6 +375,7 @@ http://<EC2-Public-IP>/customer.php
 - **Health Check Path:** `/`
 - **Registered Targets:** EC2 instances in `us-east-1a` and `us-east-1b`
 
+---
 
 ### Step-6: Create Application Load Balancer
 #### Configuration
@@ -318,6 +390,8 @@ http://<EC2-Public-IP>/customer.php
 - **Protocol:** HTTP  
 - **Port:** 80  
 - **Action:** Forward requests to the target group (e.g., `Web-TG`)
+
+---
 
 ### Step-7: Create SSL/TLS Certificate using AWS Certificate Manager (ACM)
 
@@ -346,6 +420,8 @@ ACM is used to create an SSL/TLS certificate for the **prathap.shop** domain so 
    - Once validated, status changes to **Issued**
 #### Screenshot: ACM certificate issued
 ![Screenshot: ACM certificate issued](images/ACM_validation_pending.png)
+
+---
 
 ### Step-8: Create Route 53 Hosted Zone
 
@@ -376,6 +452,8 @@ ACM is used to create an SSL/TLS certificate for the **prathap.shop** domain so 
 8.5. **Propagation**
    - DNS propagation may take up to **24 hours** globally.
    - Use tools like `nslookup prathap.shop` or [dnschecker.org](https://dnschecker.org) to verify.
+
+---
 
 ### Step-9: Create CloudFront Distribution
 
@@ -431,9 +509,9 @@ https://prathap.shop/customer.php
 
 ```
 
+---
 
-
-### Step-9: Integrate AWS WAF (Web Application Firewall)
+### Step-10: Integrate AWS WAF (Web Application Firewall)
 
 AWS WAF protects the application from common web exploits (SQL injection, XSS, bots, etc.) by filtering traffic before it reaches CloudFront or ALB.
 
@@ -473,7 +551,7 @@ EC2 Instances → RDS
 
 ---
 
-### Step-10: Final Output
+### Step-11: Final Output
 Once the Route 53 record is created, the domain `prathap.shop` will correctly resolve to the CloudFront distribution.
 
 #### Screenshot: Final output
