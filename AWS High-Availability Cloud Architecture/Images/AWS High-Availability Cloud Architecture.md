@@ -227,6 +227,10 @@ A Public Subnet in AWS is a subnet inside your VPC that is directly connected to
 ## Traffic flow
 ![Traffic flow:](images/Architecture.png)
 
+## Process steps:
+
+### Step-1: 
+
 
 
 
