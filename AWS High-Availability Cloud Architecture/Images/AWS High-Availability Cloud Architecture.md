@@ -242,6 +242,72 @@ Dedicated VPC with public subnets for EC2 and private subnets for RDS, plus Inte
 | WEB-EC2-SG | TCP        | 22, 80, 443    | ALB-SG, Admin | Allow traffic from ALB + SSH admin   |
 | RDS-SG     | TCP        | 3306           | WEB-EC2-SG    | Allow DB access only from Web EC2    |
 
+![ Step-2: AWS Security Group Rules](images/Architecture.png)
+
+### Step-3: Launch Web Tier EC2 Instances
+Launch two EC2 instances:
+
+```text
+Web EC2 1 → Public Subnet 1
+Web EC2 2 → Public Subnet 2
+```
+![ Step-3: Launch Web Tier EC2 Instance](images/Architecture.png)
+
+### Step-4: SSH Into EC2 Instances 
+***Web tier*** 
+#### Repeat for both Instances ***(13.221.199.23 & 3.239.246.248)***
+```bash
+ssh -i "C:\VCUBE DOCUMENTS\Defaultkeypair.pem" ubuntu@13.221.199.23 
+sudo -i
+apt update -y
+apt install apache2 -y
+cd var/www/html
+rm index.html
+vim customer.php (PHP Script)
+sudo systemctl status apache2
+sudo systemctl start apache2
+sudo nano /var/www/html/customers.php
+sudo apt install apache2 php libapache2-mod-php php-mysql -y
+sudo chown www-data:www-data /var/www/html/customer.php
+sudo chmod 644 /var/www/html/customer.php
+http://<EC2-Public-IP>/customer.php
+```
+
+### Step-5: Create Target Groups for Web tier EC2 Instances
+## Target Group Configuration
+
+### Steps
+1. **Create Target Groups**
+   - Navigate to **EC2 → Target Groups → Create Target Group**.
+   - Select **Instances** as the target type.
+   - Choose **HTTP** protocol and port (e.g., 80 or 8080 depending on your app).
+   - Name your target group (e.g., `Web-TG`).
+
+2. **Register EC2 Instances**
+   - Select the required **EC2 instances** in your VPC.
+   - Register them under the target group.
+   - Ensure they are deployed across **multiple Availability Zones** for high availability.
+
+3. **Configure Health Checks**
+   - Set **Health check protocol** = HTTP.
+   - Define **Health check path** = `/` (or your app’s endpoint).
+   - Adjust thresholds:
+     - Healthy threshold = 2  
+     - Unhealthy threshold = 2  
+     - Timeout = 5 seconds  
+     - Interval = 30 seconds  
+
+### Example
+- **Target Group Name:** `Web-TG`
+- **Protocol/Port:** HTTP : 80
+- **Health Check Path:** `/`
+- **Registered Targets:** EC2 instances in `us-east-1a` and `us-east-1b`
+
+
+### Step-6: 
+
+
+
 
 
 
