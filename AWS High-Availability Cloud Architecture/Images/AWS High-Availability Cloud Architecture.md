@@ -1,5 +1,7 @@
 # AWS High-Availability Cloud Architecture
 
+---
+
 ### Description:
 The Project represents a highly available, secure, and scalable AWS environment tailored for enterprise workloads. At the edge, Amazon Route 53 provides DNS routing, while Amazon CloudFront ensures low-latency global content delivery. Security is reinforced through AWS WAF for application-level protection and AWS Certificate Manager (ACM) for SSL/TLS encryption.
 
@@ -7,6 +9,7 @@ The Project represents a highly available, secure, and scalable AWS environment 
 ![Architecture:](images/Architecture.png)
 
 ---
+
 # AWS Services Used
 ### AWS:
 AWS (Amazon Web Services) is the world’s most widely adopted cloud platform, offering over 200 fully featured services ranging from compute and storage to networking, databases, AI/ML, and security. It’s designed to help individuals, startups, and enterprises build scalable, reliable, and cost‑effective solutions.
@@ -160,12 +163,12 @@ A Public Subnet in AWS is a subnet inside your VPC that is directly connected to
 ---
 
 ### Amazon RDS:
-# Amazon RDS (Relational Database Service)
+### Amazon RDS (Relational Database Service)
 - RDS is a managed database service by AWS.
 - It supports SQL as a query language.
 - It allows you to create and manage cloud databases without manual administration.
 
-## Supported Database Engines
+### Supported Database Engines
 - PostgreSQL
 - MySQL
 - MariaDB
@@ -174,7 +177,7 @@ A Public Subnet in AWS is a subnet inside your VPC that is directly connected to
 - IBM DB2
 - Aurora (AWS proprietary database)
 
-## Amazon RDS Multi-AZ Deployment
+### Amazon RDS Multi-AZ Deployment
 - **Synchronous replication** between primary and standby
 - **Single DNS name** – automatic application failover to standby
 - **High availability** – minimizes downtime
@@ -185,37 +188,37 @@ A Public Subnet in AWS is a subnet inside your VPC that is directly connected to
   - Storage failure
 - **No manual intervention** required in applications
 
-## ACM
+### ACM
 
-## Cloud Front
+### Cloud Front
 
-## WAF
+### WAF
 
-## Route53
+### Route53
 
-# Application Request Lifecycle (End‑to‑End Request Flow)
+## Application Request Lifecycle (End‑to‑End Request Flow)
 
-## Web Tier
+#### Web Tier
 - **AWS Two EC2** instances
 - Deployed in **Public Subnets**
 - Load Distributed across **two Availability Zones**
 - Receives user requests through an **Application Load Balancer** (ELB)
 
-## Database Tier
+#### Database Tier
 - **Amazon RDS** deployed in **private database subnets**  
 - **Isolated from direct internet access** for enhanced security  
 - **Accessible only from the Application Tier** within the VPC  
 - **Primary Writer instance** handles all database write operations  
 - **Read Replica** supports read workloads, improving performance and scalability
 
-## Application Traffic Flow and Security Layer
+#### Application Traffic Flow and Security Layer
 - **Amazon Route 53** handles DNS resolution for the application domain  
 - **Amazon CloudFront** serves as the global entry point for application traffic  
 - **AWS WAF** protects against common web application exploits  
 - **AWS Certificate Manager (ACM)** provides SSL/TLS certificates for secure HTTPS communication  
 - **Application Load Balancer (ALB)** distributes incoming traffic across EC2 instances
 
-## Networking & Subnet Layer
+#### Networking & Subnet Layer
 - **Dedicated AWS Virtual Private Cloud (VPC)** in the **North Virginia (us-east-1) region**  
 - Spans **two Availability Zones**:  
   - `us-east-1a`  
@@ -224,7 +227,7 @@ A Public Subnet in AWS is a subnet inside your VPC that is directly connected to
 - **Private Subnets** host the Amazon RDS database  
 - **Security Groups** enforce controlled communication between the ALB, EC2, and RDS layers
 
-## Traffic flow
+#### Traffic flow
 ![Traffic flow](images/Architecture.png)
 
 ## Process steps:
@@ -274,21 +277,19 @@ http://<EC2-Public-IP>/customer.php
 ```
 
 ### Step-5: Create Target Groups for Web tier EC2 Instances
-## Target Group Configuration
-
-### Steps
-1. **Create Target Groups**
+#### Target Group Configuration
+5.1. **Create Target Groups**
    - Navigate to **EC2 → Target Groups → Create Target Group**.
    - Select **Instances** as the target type.
    - Choose **HTTP** protocol and port (e.g., 80 or 8080 depending on your app).
    - Name your target group (e.g., `Web-TG`).
 
-2. **Register EC2 Instances**
+5.2. **Register EC2 Instances**
    - Select the required **EC2 instances** in your VPC.
    - Register them under the target group.
    - Ensure they are deployed across **multiple Availability Zones** for high availability.
 
-3. **Configure Health Checks**
+5.3. **Configure Health Checks**
    - Set **Health check protocol** = HTTP.
    - Define **Health check path** = `/` (or your app’s endpoint).
    - Adjust thresholds:
@@ -297,14 +298,196 @@ http://<EC2-Public-IP>/customer.php
      - Timeout = 5 seconds  
      - Interval = 30 seconds  
 
-### Example
+#### Example
 - **Target Group Name:** `Web-TG`
 - **Protocol/Port:** HTTP : 80
 - **Health Check Path:** `/`
 - **Registered Targets:** EC2 instances in `us-east-1a` and `us-east-1b`
 
 
-### Step-6: 
+### Step-6: Create Application Load Balancer
+#### Configuration
+- **Scheme:** Internet-facing  
+- **IP Address Type:** IPv4  
+- **Subnets:**  
+  - Public Subnet 1  
+  - Public Subnet 2  
+- **Security Group:** ALB Security Group  
+
+#### Listener Setup
+- **Protocol:** HTTP  
+- **Port:** 80  
+- **Action:** Forward requests to the target group (e.g., `Web-TG`)
+
+### Step-7: Create SSL/TLS Certificate using AWS Certificate Manager (ACM)
+
+ACM is used to create an SSL/TLS certificate for the **prathap.shop** domain so that the application can be accessed securely over HTTPS.
+
+#### Request a Certificate
+
+7.1. **Open ACM Console**
+   - Navigate to **AWS Console → Certificate Manager (ACM)**
+
+7.2. **Request a Public Certificate**
+   - Choose **Request a public certificate**
+   - Enter your domain name: `sirisarikonda.in`
+   - (Optional) Add additional names like `www.sirisarikonda.in`
+
+7.3. **Validation Method**
+   - Select **DNS Validation** (recommended)
+   - ACM provides a CNAME record to add in Route 53 (or your DNS provider)
+
+7.4. **Submit Request**
+   - Click **Request**
+   - Certificate status will show: **Pending validation**
+
+7.5. **Complete Validation**
+   - Add the provided CNAME record in your DNS
+   - Once validated, status changes to **Issued**
+#### Screenshot: ACM certificate issued
+![Screenshot: ACM certificate issued](images/ACM_validation_pending.png)
+
+### Step-8: Create Route 53 Hosted Zone
+
+#### Configuration
+
+8.1. **Open Route 53 Console**
+   - Navigate to **AWS Console → Route 53 → Hosted Zones**
+
+8.2. **Create Hosted Zone**
+   - Enter your domain name: `prathap.shop`
+   - Select **Public Hosted Zone** (for internet-facing applications)
+
+8.3. **Name Server (NS) Records**
+   - Route 53 will automatically generate **NS records** for your hosted zone.
+   - Example:
+     ```
+     ns-727.awsdns-26.net
+     ns-322.awsdns-40.com
+     ns-1978.awsdns-55.co.uk
+     ns-1482.awsdns-57.org
+     ```
+
+8.4. **Update Domain Registrar**
+   - Go to your domain registrar (where you purchased `prathap.shop`).
+   - Replace the existing name servers with the **Route 53 NS records**.
+   - Save changes.
+
+8.5. **Propagation**
+   - DNS propagation may take up to **24 hours** globally.
+   - Use tools like `nslookup prathap.shop` or [dnschecker.org](https://dnschecker.org) to verify.
+
+### Step-9: Create CloudFront Distribution
+
+CloudFront is used as the public entry point for the application (prathap.shop). It receives requests from users and forwards them to the Application Load Balancer (ALB).
+
+#### Create CloudFront Distribution
+- AWS Console → CloudFront → Distributions → Create Distribution
+
+#### Distribution Settings
+- **Distribution Name:** prathap-CloudFront  
+- **Distribution Type:** Web  
+- **Domain Name:** prathap.shop  
+- Click **Next**
+
+#### Configure the Origin
+- **Origin Type:** Application Load Balancer  
+- **Origin Domain:** Select your ALB DNS name  
+- **Origin Protocol:** HTTP only  
+
+#### Configure Cache Settings
+- **Customize cache settings**  
+- **Redirect HTTP to HTTPS**
+
+This ensures that users accessing the application over HTTP are automatically redirected to HTTPS.
+
+#### Configure Alias record in DNS Route53 Records
+```bash
+For prathap.shop
+Record type                A – IPv4 address
+Record name                prathap.shop
+Route traffic to           Alias to CloudFront distribution
+CloudFront distribution    Select your prathap.shop CloudFront distribution
+Click on create record
+
+For www.prathap.shop
+Record type                A – IPv4 address
+Record name                www.prathap.shop
+Route traffic to           Alias to CloudFront distribution
+CloudFront distribution    Select your www.prathap.shop CloudFront distribution
+Click on create record          
+
+```
+
+#### Example Flow
+```text
+http://prathap.shop/customer.php
+          |
+          v
+   Redirect to HTTPS
+          |
+          v
+https://prathap.shop/customer.php
+
+```
+
+
+
+### Step-9: Integrate AWS WAF (Web Application Firewall)
+
+AWS WAF protects the application from common web exploits (SQL injection, XSS, bots, etc.) by filtering traffic before it reaches CloudFront or ALB.
+
+#### Configuration Steps
+
+9.1. **Open WAF Console**
+   - AWS Console → WAF & Shield → Web ACLs → Create Web ACL
+
+9.2. **Create Web ACL**
+   - Name: `prathap-WAF`
+   - Scope: Choose **CloudFront** (recommended for global protection)
+   - Region: Global (for CloudFront)
+
+9.3. **Add Rules**
+   - Select **AWS Managed Rule Groups** (quick protection):
+     - `AWSManagedRulesCommonRuleSet` (SQLi, XSS, bad inputs)
+     - `AWSManagedRulesKnownBadInputsRuleSet`
+     - `AWSManagedRulesBotControlRuleSet` (optional)
+   - You can also create **custom rules** (e.g., block specific IPs or geographies).
+
+9.4. **Associate Web ACL**
+   - Attach the Web ACL to your **CloudFront Distribution** (`prathap-CloudFront`)
+   - (Optional) You can also attach to ALB if needed.
+
+#### Flow Diagram
+
+   User Request
+         |
+         v
+   CloudFront + WAF (filters malicious traffic)
+         |
+         v
+Application Load Balancer (ALB)
+         |
+         v
+EC2 Instances → RDS
+
+---
+
+### Step-10: Final Output
+Once the Route 53 record is created, the domain `prathap.shop` will correctly resolve to the CloudFront distribution.
+
+#### Screenshot: Final output
+![Screenshot- Final output](images/output.png)
+
+---
+
+
+ 
+
+
+  
+  
+
 
 
 
