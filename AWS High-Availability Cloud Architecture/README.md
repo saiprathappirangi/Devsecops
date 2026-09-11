@@ -575,11 +575,14 @@ EC2 Instances → RDS
 ### Step-11: Final Output
 Once the Route 53 record is created, the domain `prathap.shop` will correctly resolve to the CloudFront distribution.
 
-#### Screenshot: Output ALB Webserver1
-![ Screenshot: Output ALB Webserver1](Images/ALBweb-1out.png)
+#### Screenshot: Output EC2 Webserver1
+![ Screenshot: Output EC2 Webserver1](Images/web1out.png)
 
-#### Screenshot: Output ALB Webserver2
-![ Screenshot: Output ALB Webserver2](Images/ALBweb-2out.png)
+#### Screenshot: Output EC2 Webserver2
+![ Screenshot: Output EC2 Webserver2](Images/web2out.png)
+
+#### Screenshot: Output Application load balancer
+![ Screenshot: Output Application load balancer](Images/ALBwebout.png)
 
 #### Screenshot: Output CloudFront
 ![ Screenshot: Output CloudFront](Images/Cloudforntout.png)
