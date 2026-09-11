@@ -348,6 +348,11 @@ sudo chown www-data:www-data /var/www/html/customer.php
 sudo chmod 644 /var/www/html/customer.php
 http://<EC2-Public-IP>/customer.php
 ```
+#### Screenshot: Output EC2 Webserver1
+![ Screenshot: Output EC2 Webserver1](Images/web1out.png)
+
+#### Screenshot: Output EC2 Webserver2
+![ Screenshot: Output EC2 Webserver2](Images/web2out.png)
 
 ---
 
@@ -400,6 +405,9 @@ http://<EC2-Public-IP>/customer.php
 
 #### Screenshot: Application Load balancer for EC2 Instances
 ![ Screenshot: Application Load balancer for EC2 Instances](Images/ALB.png)
+
+#### Screenshot: Output Application load balancer
+![ Screenshot: Output Application load balancer](Images/ALBwebout.png)
 
 ---
 
@@ -495,6 +503,9 @@ This ensures that users accessing the application over HTTP are automatically re
 #### Screenshot: CloudFront Distribution
 ![ Screenshot: CloudFront Distribution](Images/cloudfornt.png)
 
+#### Screenshot: Output CloudFront
+![ Screenshot: Output CloudFront](Images/Cloudforntout.png)
+
 #### Configure Alias record in DNS Route53 Records
 ```bash
 For prathap.shop
@@ -574,18 +585,6 @@ EC2 Instances → RDS
 
 ### Step-11: Final Output
 Once the Route 53 record is created, the domain `prathap.shop` will correctly resolve to the CloudFront distribution.
-
-#### Screenshot: Output EC2 Webserver1
-![ Screenshot: Output EC2 Webserver1](Images/web1out.png)
-
-#### Screenshot: Output EC2 Webserver2
-![ Screenshot: Output EC2 Webserver2](Images/web2out.png)
-
-#### Screenshot: Output Application load balancer
-![ Screenshot: Output Application load balancer](Images/ALBwebout.png)
-
-#### Screenshot: Output CloudFront
-![ Screenshot: Output CloudFront](Images/Cloudforntout.png)
 
 #### Screenshot: Output DNS Route53 
 ![Screenshot: Output DNS Route53](Images/Route53out.png)
