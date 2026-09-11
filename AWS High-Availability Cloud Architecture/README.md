@@ -398,6 +398,9 @@ http://<EC2-Public-IP>/customer.php
 - **Port:** 80  
 - **Action:** Forward requests to the target group (e.g., `Web-TG`)
 
+#### Screenshot: Application Load balancer for EC2 Instances
+![ Screenshot: Application Load balancer for EC2 Instances](Images/ALB.png)
+
 ---
 
 ### Step-7: Create SSL/TLS Certificate using AWS Certificate Manager (ACM)
