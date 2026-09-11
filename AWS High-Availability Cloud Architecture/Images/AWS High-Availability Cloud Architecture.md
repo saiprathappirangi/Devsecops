@@ -330,8 +330,8 @@ ACM is used to create an SSL/TLS certificate for the **prathap.shop** domain so 
 
 7.2. **Request a Public Certificate**
    - Choose **Request a public certificate**
-   - Enter your domain name: `sirisarikonda.in`
-   - (Optional) Add additional names like `www.sirisarikonda.in`
+   - Enter your domain name: `prathap.shop`
+   - (Optional) Add additional names like `www.prathap.shop`
 
 7.3. **Validation Method**
    - Select **DNS Validation** (recommended)
