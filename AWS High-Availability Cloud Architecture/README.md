@@ -356,6 +356,55 @@ http://<EC2-Public-IP>/customer.php
 
 ---
 
+### Create RDS Data base for multi-AZ and EC2 End point Connection
+![ Step-10: Create RDS Data base for multi-AZ and EC2 End point Connection](RDS-MULTI.png)
+
+```bash
+ssh -i "/c:/VCUBE DOCUMENTS/Custumkeypair.pem"@Ubuntu
+sudo -i
+vim Projectkeypair.pem
+ssh -i "Projectkeypair.pem" ubuntu@
+sudo -i
+apt update -y
+apt install mysql-server
+systemctl start mysql.service
+mysql -h end point -u admin -p
+Password: Prathap123
+```
+
+### Insert data into Database
+
+```bash
+Show dataabses;
+create database prathap;
+use prathap;
+
+CREATE TABLE Customers (
+    Customer_ID INT PRIMARY KEY,
+    Customer_Name VARCHAR(255) NOT NULL,
+    Address VARCHAR(255),
+    Gender VARCHAR(10),
+    Mobile_Number VARCHAR(15),
+    Purchase_Date DATE,
+    Bill_Amount DECIMAL(10,2)
+    );
+
+ Example:
+INSERT INTO Customers
+(Customer, Customer Name, Address, Gender, Mobile Number, Purchase Date, Bill Amount)
+VALUES 
+(10004, 'Prathap', 'Medak', 'Male', '9701184793', '2026-08-13', 450),
+(10005, 'Anitha', 'Hyderabad', 'Female', '9876543210', '2026-08-12', 1200),
+(10006, 'Ramesh', 'Warangal', 'Male', '9123456789', '2026-08-11', 800),
+(10007, 'Lakshmi', 'Medak', 'Female', '9445566778', '2026-08-08', 950),
+(10008, 'Arjun', 'Nizamabad', 'Male', '9556677889', '2026-08-09', 600),
+(10009, 'Sita', 'Karimnagar', 'Female', '9001122334', '2026-08-10', 1500);
+
+```
+#### Screenshot: Output RDS
+![ Screenshot: Output RDS](Images/RDS.png)
+
+---
 ### Step-5: Create Target Groups for Web tier EC2 Instances
 #### Target Group Configuration
 5.1. **Create Target Groups**
