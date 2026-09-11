@@ -491,6 +491,10 @@ CloudFront is used as the public entry point for the application (prathap.shop).
 
 This ensures that users accessing the application over HTTP are automatically redirected to HTTPS.
 
+
+#### Screenshot: CloudFront Distribution
+![ Screenshot: CloudFront Distribution](Images/cloudfornt.png)
+
 #### Configure Alias record in DNS Route53 Records
 ```bash
 For prathap.shop
