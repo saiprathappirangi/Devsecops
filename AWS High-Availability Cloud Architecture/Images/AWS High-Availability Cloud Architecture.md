@@ -234,7 +234,14 @@ Dedicated VPC with public subnets for EC2 and private subnets for RDS, plus Inte
 
 ![ Step-1: Create VPC and Subnets by using option called VPC and more](images/Architecture.png)
 
-### Step-2: Create Security Groups
+### Step-2: AWS Security Group Rules
+
+| RESOURCES  | Protocol   | Port Range     | Source        | Description                          |
+|------------|------------|----------------|---------------|--------------------------------------|
+| ALB-SG     | HTTP/HTTPS | 80, 443        | 0.0.0.0/0     | Public entry point for web traffic   |
+| WEB-EC2-SG | TCP        | 22, 80, 443    | ALB-SG, Admin | Allow traffic from ALB + SSH admin   |
+| RDS-SG     | TCP        | 3306           | WEB-EC2-SG    | Allow DB access only from Web EC2    |
+
 
 
 
