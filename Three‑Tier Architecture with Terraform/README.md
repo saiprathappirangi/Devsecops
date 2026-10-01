@@ -10,7 +10,7 @@ security groups for controlled access across tiers.
 ---
 
 ## Architecture:
-![Architecture](Three-tier.png)
+![Architecture](Images/Three-tier.png)
 
 ---
 
